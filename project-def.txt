@@ -1,0 +1,23 @@
+Evaluación avanzada y automatizada de seguridad en aplicaciones web — aplicación full-stack con Next.js (API routes) y Python opcional para módulos específicos.
+
+Desarrollaré una herramienta web que, con consentimiento explícito del propietario, automatiza un análisis avanzado y no destructivo de una URL, correlaciona hallazgos con bases de datos de vulnerabilidades y genera un informe PDF. Un módulo de IA interpretará los resultados y redactará el informe y recomendaciones.
+
+Funciones clave:
+	•	Gestión de consentimiento/autorización firmada antes de ejecutar cualquier análisis.
+	•	Reconocimiento/OSINT: WHOIS, crt.sh, DNS, geo/IP/ASN, búsquedas públicas (Google dorks controlados (opcional)).
+	•	Identificación tecnológica: fingerprinting (headers, meta, Wappalyzer).
+	•	Enumeración respetuosa: crawling de rutas públicas y detección de endpoints (respeto a robots.txt y rate limits).
+	•	Obtención de información de exposición pública (consulta a APIs como Shodan/Ipinfo para puertos/servicios ya indexados — sin ejecutar scans activos externos).
+	•	Heurísticas de detección pasiva para vectores (parámetros reflejados, inputs potencialmente vulnerables) — marcado como “potencial” (no explotación).
+	•	Correlación automática con NVD/Vulners/OSV y búsquedas de referencias públicas a exploits (solo referencias).
+	•	Módulo IA: interpretación de hallazgos, priorización y redacción automática del resumen ejecutivo, recomendaciones técnicas y justificación de la puntuación.
+	•	Generación de informe PDF con evidencia, CVEs referenciadas, score de riesgo y pasos de mitigación concretos.
+	•	Pruebas de validación en laboratorio controlado (DVWA / Juice Shop) para demostrar detección y verificación sin afectar a terceros.
+	•	Pipeline de desarrollo seguro (GitHub Actions: lint, tests, SAST y dependency scanning).
+
+Asignaturas del máster implicadas (principales)
+	•	Seguridad Ofensiva: Hacking ético; Pruebas de Seguridad Avanzadas; Ciberinteligencia y ciberamenazas; Investigación en DeepWeb/DarkWeb.
+	•	Seguridad Defensiva: Arquitectura de ciberseguridad; Ciberseguridad y tecnologías disruptivas; Gestión de riesgos; Gestión de crisis y ciberresiliencia; Gestión de equipos de respuesta; Seguridad en desarrollo software; Normativa y legislación.
+
+Nota importante
+Todas las pruebas sobre dominios ajenos se realizarán únicamente con autorización escrita del propietario; no se ejecutarán explotaciones ni pruebas DDoS contra terceros.
