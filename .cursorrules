@@ -1,0 +1,79 @@
+# Project Context and Configuration
+
+## Technology Stack Versions
+
+- **Runtime/Package Manager**: Bun
+- **Framework**: Next.js 16.1.1
+- **React**: 19.2.3
+- **React DOM**: 19.2.3
+- **TypeScript**: ^5
+- **Tailwind CSS**: ^4
+- **ESLint**: ^9
+- **Node Types**: ^20
+- **Python**: Optional (for specific modules)
+
+## Project Description
+
+### Advanced Automated Security Assessment Tool for Web Applications
+
+Full-stack application with Next.js (API routes) and optional Python for specific modules.
+
+This is a web tool that, with explicit consent from the owner, automates advanced non-destructive analysis of a URL, correlates findings with vulnerability databases, and generates a PDF report. An AI module will interpret results and draft the report and recommendations.
+
+### Key Features
+
+- **Consent/Authorization Management**: Signed consent/authorization before executing any analysis.
+- **Reconnaissance/OSINT**: WHOIS, crt.sh, DNS, geo/IP/ASN, public searches (controlled Google dorks - optional).
+- **Technology Identification**: Fingerprinting (headers, meta, Wappalyzer).
+- **Respectful Enumeration**: Crawling of public routes and endpoint detection (respecting robots.txt and rate limits).
+- **Public Exposure Information**: Query APIs like Shodan/Ipinfo for ports/services already indexed - no external active scans.
+- **Passive Detection Heuristics**: For vectors (reflected parameters, potentially vulnerable inputs) - marked as "potential" (no exploitation).
+- **Automatic Correlation**: With NVD/Vulners/OSV and searches for public exploit references (references only).
+- **AI Module**: Interpretation of findings, prioritization and automatic drafting of executive summary, technical recommendations and risk score justification.
+- **PDF Report Generation**: With evidence, referenced CVEs, risk score and concrete mitigation steps.
+- **Validation Testing**: In controlled lab environment (DVWA / Juice Shop) to demonstrate detection and verification without affecting third parties.
+- **Secure Development Pipeline**: GitHub Actions (lint, tests, SAST and dependency scanning).
+
+### Master's Degree Subjects Involved
+
+**Offensive Security**:
+- Ethical Hacking
+- Advanced Security Testing
+- Cyber Intelligence and Cyber Threats
+- DeepWeb/DarkWeb Research
+
+**Defensive Security**:
+- Cybersecurity Architecture
+- Cybersecurity and Disruptive Technologies
+- Risk Management
+- Crisis Management and Cyber Resilience
+- Security Incident Response Team Management
+- Software Development Security
+- Regulations and Legislation
+
+### Important Note
+
+All tests on third-party domains will be performed only with written authorization from the owner; no exploitation or DDoS tests will be executed against third parties.
+
+## Development Guidelines
+
+- Use Bun as package manager (not npm/yarn)
+- Follow Next.js 16 App Router conventions
+- Use TypeScript for type safety
+- Apply Tailwind CSS for styling
+- Run linting before build: `bun run lint && next build`
+- Respect robots.txt and rate limits in all automated scans
+- Never execute destructive tests or exploitation without explicit authorization
+- All security testing must be non-destructive and respectful
+- Maintain clear separation between passive reconnaissance and active testing
+
+## Code Style
+
+- Use TypeScript strict mode
+- Follow ESLint configuration (eslint-config-next)
+- Use functional components with React 19
+- Prefer async/await over promises
+- Implement proper error handling for all API calls
+- Include proper type definitions for all functions and components
+- Screaming arquitecture
+
