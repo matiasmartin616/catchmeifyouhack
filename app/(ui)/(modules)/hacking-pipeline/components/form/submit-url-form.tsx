@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Terminal, ShieldAlert, Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import { useLaunchService } from "../../data-layer/service-hooks/use-launch.service.hook";
 import { LaunchRequest } from "@/app/api/hacking-pipeline/domain/dtos";
@@ -30,11 +31,8 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-interface SubmitUrlFormProps {
-    onLaunchSuccess?: (pipelineId: string) => void;
-}
-
-export default function SubmitUrlForm({ onLaunchSuccess }: SubmitUrlFormProps) {
+export default function SubmitUrlForm() {
+    const router = useRouter();
     const {
         launch,
         isPending: isSubmitting,
@@ -43,7 +41,7 @@ export default function SubmitUrlForm({ onLaunchSuccess }: SubmitUrlFormProps) {
     } = useLaunchService({
         successCallback: (data) => {
             if (data.pipelineId) {
-                onLaunchSuccess?.(data.pipelineId);
+                router.push(`/pipeline/${data.pipelineId}`);
             }
         }
     });

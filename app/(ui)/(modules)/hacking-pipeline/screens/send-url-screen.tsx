@@ -1,4 +1,4 @@
-import PipelineManager from "../components/pipeline-manager";
+import SubmitUrlForm from "../components/form/submit-url-form";
 
 export default function SendUrlScreen() {
   return (
@@ -7,7 +7,7 @@ export default function SendUrlScreen() {
         Advanced Automated Security Assessment Tool for authorized infiltration testing.
       </p>
 
-      <PipelineManager />
+      <SubmitUrlForm />
     </section>
   );
 }
