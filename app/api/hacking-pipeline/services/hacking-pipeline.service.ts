@@ -8,35 +8,56 @@ import {
 import HackingPipelineInstance, {
   HackingPipelineStatus,
 } from "../domain/entities/hacking-pipeline-instance";
+import { hackingPipelineInstanceStore } from "../infra/store/hacking-pipeline-instance.store";
 
 export interface HackingPipelineServiceInterface {
   launch(request: LaunchRequest): Promise<LaunchResponse>;
-  status(statusRequest: StatusRequest): Promise<StatusResponse>;
+  nextStatus(pipelineId: string): Promise<HackingPipelineInstance>;
+  getPipelineInstanceById(id: string): HackingPipelineInstance | undefined;
+  getInstanceById(id: string): HackingPipelineInstance | undefined;
 }
 
 export class HackingPipelineService implements HackingPipelineServiceInterface {
   async launch(request: LaunchRequest): Promise<LaunchResponse> {
-    // Logic for launching the pipeline with the URL: request.url
-    // Avoid unused var error
-    const _ = request;
-    // For now, return a mock ID
-    const pipelineId = crypto.randomUUID();
+    const hackingPipelineInstance = new HackingPipelineInstance(
+      crypto.randomUUID(),
+      HackingPipelineStatus.PENDING,
+      request.url,
+      new Map(),
+      new Date(),
+      new Date()
+    );
+
+    const pipelineId = hackingPipelineInstanceStore.create(
+      hackingPipelineInstance
+    );
+
     return new LaunchResponse(pipelineId.toString());
   }
 
-  async status(statusRequest: StatusRequest): Promise<StatusResponse> {
-    // Logic for checking pipeline status
-    // For now, return mock data
-    return new StatusResponse(
-      new HackingPipelineInstance(
-        statusRequest.pipelineId,
-        HackingPipelineStatus.POST_EXPLOITING,
-        "",
-        new Map(),
-        new Date(),
-        new Date()
-      )
+  async nextStatus(pipelineId: string): Promise<HackingPipelineInstance> {
+    const hackingPipelineInstance =
+      hackingPipelineInstanceStore.getById(pipelineId);
+
+    if (!hackingPipelineInstance) {
+      throw new Error("Hacking pipeline instance not found");
+    }
+
+    const nextStatus = hackingPipelineInstance.nextStatus(
+      hackingPipelineInstance.status
     );
+
+    hackingPipelineInstanceStore.update(hackingPipelineInstance);
+
+    return hackingPipelineInstance;
+  }
+
+  getPipelineInstanceById(id: string): HackingPipelineInstance | undefined {
+    return hackingPipelineInstanceStore.getById(id);
+  }
+
+  getInstanceById(id: string): HackingPipelineInstance | undefined {
+    return hackingPipelineInstanceStore.getById(id);
   }
 }
 

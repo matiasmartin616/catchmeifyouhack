@@ -18,4 +18,28 @@ export default class HackingPipelineInstance {
     public readonly createdAt: Date,
     public readonly updatedAt: Date
   ) {}
+
+  nextStatus(currentStatus: HackingPipelineStatus): HackingPipelineStatus {
+    switch (currentStatus) {
+      case HackingPipelineStatus.PENDING:
+        return HackingPipelineStatus.LAUNCHED;
+
+      case HackingPipelineStatus.LAUNCHED:
+        return HackingPipelineStatus.SCOPING;
+
+      case HackingPipelineStatus.SCOPING:
+        return HackingPipelineStatus.SCANNING;
+
+      case HackingPipelineStatus.SCANNING:
+        return HackingPipelineStatus.EXPLOITING;
+
+      case HackingPipelineStatus.EXPLOITING:
+        return HackingPipelineStatus.POST_EXPLOITING;
+
+      case HackingPipelineStatus.POST_EXPLOITING:
+        return HackingPipelineStatus.COMPLETED;
+    }
+
+    throw new Error("Invalid status");
+  }
 }

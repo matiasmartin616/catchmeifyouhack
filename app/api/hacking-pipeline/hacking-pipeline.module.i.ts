@@ -1,4 +1,4 @@
-import { LaunchResponse, StatusResponse } from "./domain";
+import { LaunchResponse, StatusResponse } from "./domain/dtos";
 import { LaunchRequest } from "./domain/dtos/launch.request";
 import { StatusRequest } from "./domain/dtos/status.request";
 

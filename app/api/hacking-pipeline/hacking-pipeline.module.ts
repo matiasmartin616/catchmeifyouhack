@@ -20,7 +20,19 @@ class HackingPipelineModule implements HackingPipelineInterface {
   }
 
   async status(statusRequest: StatusRequest): Promise<StatusResponse> {
-    return await this.hackingPipelineService.status(statusRequest);
+    if (!statusRequest.pipelineId) {
+      throw new Error("Pipeline ID is required");
+    }
+
+    const hackingPipelineInstance = this.hackingPipelineService.getInstanceById(
+      statusRequest.pipelineId
+    );
+
+    if (!hackingPipelineInstance) {
+      throw new Error("Hacking pipeline instance not found");
+    }
+
+    return new StatusResponse(hackingPipelineInstance);
   }
 }
 
