@@ -18,6 +18,8 @@ export class HtmlReportBuilder {
     const whois = osint?.whois;
     const geoIp = osint?.geoIp;
     const dns = osint?.dns;
+    const subdomains = osint?.subdomains;
+    const headers = techStack?.headers;
 
     return `
     <!DOCTYPE html>
@@ -313,11 +315,17 @@ export class HtmlReportBuilder {
                 </tr>
                 <tr>
                     <td>JURISDICTION</td>
-                    <td>${geoIp.country || "Unknown"}</td>
+                    <td>${geoIp.city ? `${geoIp.city}, ` : ""}${
+                    geoIp.country || "Unknown"
+                  }</td>
                 </tr>
                 <tr>
                     <td>ISP_ORG</td>
-                    <td>${geoIp.isp || "N/A"}</td>
+                    <td>${geoIp.isp || "N/A"}${
+                    geoIp.org && geoIp.org !== geoIp.isp
+                      ? ` (${geoIp.org})`
+                      : ""
+                  }</td>
                 </tr>
                 <tr>
                     <td>ASN</td>
@@ -340,11 +348,49 @@ Registrar:    ${
                   }
 Created:      ${whois.registrarData?.["Creation Date"] || "N/A"}
 Expires:      ${whois.registrarData?.["Registry Expiry Date"] || "N/A"}
+Domain Status:${
+                    (whois.registrarData?.["Domain Status"] as string[])?.length
+                      ? (whois.registrarData?.["Domain Status"] as string[])
+                          .map((s) => `\n              - ${s.split(" ")[0]}`)
+                          .join("")
+                      : " N/A"
+                  }
 Name Servers: ${
                     (whois.registrarData?.["Name Server"] as string[])?.join(
                       ", "
                     ) || "N/A"
                   }
+            </div>
+            `
+                : ""
+            }
+
+            ${
+              subdomains && subdomains.length > 0
+                ? `
+            <h3>DISCOVERED_SUBDOMAINS</h3>
+            <div style="margin-bottom: 20px;">
+                <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px;">
+                    TOTAL_FOUND: <span style="color: var(--text-main); font-weight: bold;">${
+                      subdomains.length
+                    }</span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-size: 10px;">
+                    ${subdomains
+                      .slice(0, 50) // Limit to 50 for the report to avoid explosion
+                      .map(
+                        (sub) =>
+                          `<div style="background: var(--card-bg); padding: 6px 10px; border: 1px solid var(--border-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${sub}</div>`
+                      )
+                      .join("")}
+                </div>
+                ${
+                  subdomains.length > 50
+                    ? `<div style="text-align: center; margin-top: 10px; font-style: italic; color: var(--text-muted);">... and ${
+                        subdomains.length - 50
+                      } more subdomains omitted from PDF report</div>`
+                    : ""
+                }
             </div>
             `
                 : ""
@@ -409,6 +455,30 @@ Name Servers: ${
                     : '<div style="color: var(--text-muted);">NO_FINGERPRINTS_FOUND</div>'
                 }
             </div>
+
+            ${
+              headers
+                ? `
+            <h3>HTTP_HEADERS_ANALYSIS</h3>
+            <table class="data-table">
+                <tr>
+                    <th width="30%">HEADER_NAME</th>
+                    <th>VALUE</th>
+                </tr>
+                ${Object.entries(headers)
+                  .map(
+                    ([key, value]) => `
+                <tr>
+                    <td style="color: var(--text-muted); font-weight: bold;">${key}</td>
+                    <td style="word-break: break-all;">${value}</td>
+                </tr>
+                `
+                  )
+                  .join("")}
+            </table>
+            `
+                : ""
+            }
             `
                 : "NO_DATA_AVAILABLE"
             }
