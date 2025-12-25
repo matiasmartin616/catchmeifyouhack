@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { hackingPipelineModule } from "../../hacking-pipeline.module";
-import { LaunchRequest, LaunchResponse } from "../../domain/dtos";
+import {
+  LaunchRequest,
+  LaunchResponse,
+  LaunchResponseDTO,
+} from "../../domain/dtos";
 import { z } from "zod";
 
 const launchSchema = z.object({
@@ -41,13 +45,15 @@ export async function POST(request: NextRequest) {
 
     const launchRequest = new LaunchRequest(validation.data.url);
 
-    const result = await hackingPipelineModule.launch(launchRequest);
+    const result: LaunchResponseDTO = await hackingPipelineModule.launch(
+      launchRequest
+    );
     return NextResponse.json(result);
   } catch (reason) {
     const message =
       reason instanceof Error ? reason.message : "Unexpected error";
     console.log(message);
-    return NextResponse.json(new LaunchResponse(undefined), {
+    return NextResponse.json(new LaunchResponse(undefined, message), {
       status: 500,
     });
   }

@@ -18,6 +18,17 @@ export async function GET(
     });
   } catch (error) {
     console.error("Error generating report:", error);
+
+    if (
+      error instanceof Error &&
+      error.message === "Hacking pipeline instance not found"
+    ) {
+      return NextResponse.json(
+        { error: "Hacking pipeline instance not found" },
+        { status: 404 }
+      );
+    }
+
     return NextResponse.json(
       { error: "Failed to generate report" },
       { status: 500 }

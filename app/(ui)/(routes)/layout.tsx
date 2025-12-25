@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "../../(ui)/globals.css";
 import Providers from "../(modules)/shared/providers";
 
@@ -31,9 +32,11 @@ export default function RootLayout({
                 <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-green-900/10 via-black to-black -z-10" />
 
                 <header className="text-center space-y-4 pt-12">
-                    <h1 className="text-5xl font-black tracking-tighter sm:text-7xl uppercase italic">
-                        CatchMe<span className="text-zinc-800 bg-green-500 px-2 not-italic">IfYouHack</span>
-                    </h1>
+                    <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
+                        <h1 className="text-5xl font-black tracking-tighter sm:text-7xl uppercase italic">
+                            CatchMe<span className="text-zinc-800 bg-green-500 px-2 not-italic">IfYouHack</span>
+                        </h1>
+                    </Link>
                     <div className="flex items-center justify-center gap-4 text-[10px] tracking-[0.2em] text-green-500/50 font-bold uppercase">
                         <span>[ Scanning_Active ]</span>
                         <span className="w-1 h-1 bg-green-500 rounded-full animate-pulse" />

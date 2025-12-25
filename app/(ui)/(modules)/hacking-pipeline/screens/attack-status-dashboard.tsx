@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import {
     Terminal,
     Shield,
@@ -14,6 +15,7 @@ import {
     XCircle,
 } from "lucide-react";
 import { useStatusService } from "../data-layer/service-hooks/use-status.service.hook";
+import { useDownloadReportByPipelineId } from "../data-layer/service-hooks/use-download-report-by-pipeline-id.hook";
 import { HackingPipelineStatus } from "@/app/api/hacking-pipeline/domain/entities/hacking-pipeline-instance";
 
 interface AttackStatusDashboardProps {
@@ -60,17 +62,42 @@ export default function AttackStatusDashboard({
 }: AttackStatusDashboardProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [elapsedTime, setElapsedTime] = useState(0);
+    const router = useRouter();
 
     const { data: statusResponse, isError } = useStatusService({
         pipelineId,
     });
 
+    const {
+        data: reportBlob,
+        isLoading: isDownloadingReport,
+        refetch: downloadReport,
+    } = useDownloadReportByPipelineId(pipelineId);
+
     const info = statusResponse?.pipelineInstanceInfo;
-    const currentStatus = info?.status || HackingPipelineStatus.PENDING;
+    const currentStatus = (info?.status as HackingPipelineStatus) || HackingPipelineStatus.PENDING;
     const isComplete = currentStatus === HackingPipelineStatus.COMPLETED;
     const isFailed = currentStatus === HackingPipelineStatus.FAILED;
 
+    useEffect(() => {
+        if (isError) {
+            const timer = setTimeout(() => {
+                router.push("/");
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [isError, router]);
+
     const logs = useMemo(() => {
+        if (isError) {
+            return [
+                "ERROR: CONNECTION_LOST",
+                "STATUS: TARGET_NOT_FOUND_OR_UNREACHABLE",
+                "ACTION: RETRYING_CONNECTION (3/3) - FAILED",
+                "SYSTEM: ABORTING_OPERATION...",
+                "REDIRECTING: RETURNING_TO_HOME_SCREEN..."
+            ];
+        }
         if (!info) return [];
 
         const logsList: string[] = [];
@@ -92,7 +119,7 @@ export default function AttackStatusDashboard({
         }
 
         return logsList;
-    }, [info, currentStatus]);
+    }, [info, currentStatus, isError]);
 
     useEffect(() => {
         if (!info?.createdAt) return;
@@ -125,8 +152,23 @@ export default function AttackStatusDashboard({
 
     const handleDownloadReport = () => {
         if (!pipelineId) return;
-        window.location.href = `/api/hacking-pipeline/report/${pipelineId}`;
+        downloadReport();
     };
+
+    useEffect(() => {
+        if (reportBlob) {
+            const url = window.URL.createObjectURL(reportBlob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", `report-${pipelineId}.pdf`);
+            document.body.appendChild(link);
+            link.click();
+            if (link.parentNode) {
+                link.parentNode.removeChild(link);
+            }
+            window.URL.revokeObjectURL(url);
+        }
+    }, [reportBlob, pipelineId]);
 
     return (
         <div className="w-full max-w-5xl p-1 font-mono">
@@ -224,21 +266,24 @@ export default function AttackStatusDashboard({
                             ref={scrollRef}
                             className="flex-1 bg-black/80 border border-green-500/20 rounded p-4 overflow-y-auto font-mono text-xs space-y-1 scrollbar-thin scrollbar-thumb-green-900 scrollbar-track-transparent"
                         >
-                            {!info && (
+                            {!info && !isError && (
                                 <div className="text-green-900 animate-pulse">
-                                    Waiting for uplink...
+                                    ESTABLISHING_UPLINK... (RETRYING_CONNECTION)
                                 </div>
                             )}
                             {logs.map((log, i) => (
                                 <div
                                     key={i}
-                                    className="text-green-500/80 border-l-2 border-green-900/50 pl-2 hover:bg-green-900/10 transition-colors"
+                                    className={`border-l-2 pl-2 transition-colors ${isError
+                                        ? "text-red-500/80 border-red-900/50 hover:bg-red-900/10"
+                                        : "text-green-500/80 border-green-900/50 hover:bg-green-900/10"
+                                        }`}
                                 >
-                                    <span className="text-green-700 mr-2">$</span>
+                                    <span className={isError ? "text-red-700 mr-2" : "text-green-700 mr-2"}>$</span>
                                     {log}
                                 </div>
                             ))}
-                            <div className="animate-pulse text-green-500">_</div>
+                            <div className={`animate-pulse ${isError ? "text-red-500" : "text-green-500"}`}>_</div>
                         </div>
 
                         <div className="mt-6">
@@ -271,9 +316,11 @@ export default function AttackStatusDashboard({
                     {isComplete && (
                         <button
                             onClick={handleDownloadReport}
-                            className="bg-green-600 hover:bg-green-500 text-black font-bold px-4 py-1 rounded text-[10px] transition-colors cursor-pointer"
+                            disabled={isDownloadingReport}
+                            className={`bg-green-600 hover:bg-green-500 text-black font-bold px-4 py-1 rounded text-[10px] transition-colors cursor-pointer ${isDownloadingReport ? "opacity-50 cursor-wait" : ""
+                                }`}
                         >
-                            DOWNLOAD_REPORT
+                            {isDownloadingReport ? "DOWNLOADING..." : "DOWNLOAD_REPORT"}
                         </button>
                     )}
                 </div>

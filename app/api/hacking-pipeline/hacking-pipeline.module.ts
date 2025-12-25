@@ -37,6 +37,13 @@ class HackingPipelineModule implements HackingPipelineInterface {
   }
 
   async generateReport(instanceId: string): Promise<Buffer> {
+    const hackingPipelineInstance =
+      this.hackingPipelineService.getPipelineInstanceById(instanceId);
+
+    if (!hackingPipelineInstance) {
+      throw new Error("Hacking pipeline instance not found");
+    }
+
     return await this.hackingPipelineService.generateReportByInstanceId(
       instanceId
     );

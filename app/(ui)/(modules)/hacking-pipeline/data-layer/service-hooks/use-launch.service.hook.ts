@@ -1,12 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
-import HackingPipelineRepository from "../repository/hacking-pipeline.repository";
+import { hackingPipelineRepository } from "../repository/hacking-pipeline.repository";
 import {
   LaunchRequest,
-  LaunchResponse,
+  LaunchResponseDTO,
 } from "@/app/api/hacking-pipeline/domain/dtos";
 
 interface UseLaunchServiceProps {
-  successCallback?: (data: LaunchResponse) => void;
+  successCallback?: (data: LaunchResponseDTO) => void;
   errorCallback?: (error: Error) => void;
 }
 
@@ -14,11 +14,9 @@ export const useLaunchService = ({
   successCallback,
   errorCallback,
 }: UseLaunchServiceProps = {}) => {
-  const repository = new HackingPipelineRepository();
-
-  const launchMutation = useMutation<LaunchResponse, Error, LaunchRequest>({
+  const launchMutation = useMutation<LaunchResponseDTO, Error, LaunchRequest>({
     mutationFn: (request: LaunchRequest) =>
-      repository.launchHackingPipeline(request),
+      hackingPipelineRepository.launchHackingPipeline(request),
     onSuccess: (data) => {
       successCallback?.(data);
     },

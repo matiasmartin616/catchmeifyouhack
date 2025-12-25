@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import HackingPipelineRepository from "../repository/hacking-pipeline.repository";
+import { hackingPipelineRepository } from "../repository/hacking-pipeline.repository";
 import {
   StatusRequest,
-  StatusResponse,
+  StatusResponseDTO,
 } from "@/app/api/hacking-pipeline/domain/dtos";
 import { HackingPipelineStatus } from "@/app/api/hacking-pipeline/domain/entities/hacking-pipeline-instance";
 
@@ -13,13 +13,11 @@ interface UseStatusServiceProps {
 export const useStatusService = ({
   pipelineId,
 }: UseStatusServiceProps = {}) => {
-  const repository = new HackingPipelineRepository();
-
-  const query = useQuery<StatusResponse, Error>({
+  const query = useQuery<StatusResponseDTO, Error>({
     queryKey: ["pipelineStatus", pipelineId],
     queryFn: async () => {
       if (!pipelineId) throw new Error("Pipeline ID is required");
-      return await repository.getHackingPipelineStatus(
+      return await hackingPipelineRepository.getHackingPipelineStatus(
         new StatusRequest(pipelineId)
       );
     },
@@ -44,7 +42,8 @@ export const useStatusService = ({
       return 3000;
     },
 
-    retry: false,
+    retry: 3,
+    retryDelay: 1000,
 
     refetchOnWindowFocus: false,
   });

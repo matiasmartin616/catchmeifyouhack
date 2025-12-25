@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { hackingPipelineModule } from "../../../hacking-pipeline.module";
-import { StatusRequest, StatusResponse } from "../../../domain/dtos";
+import {
+  StatusRequest,
+  StatusResponse,
+  StatusResponseDTO,
+} from "../../../domain/dtos";
 import HackingPipelineInstance, {
   HackingPipelineStatus,
 } from "../../../domain/entities/hacking-pipeline-instance";
@@ -54,11 +58,23 @@ export async function GET(
       // If invalid URL, keep original
     }
 
-    return NextResponse.json(new StatusResponse(displayInstance));
-  } catch (reason) {
+    return NextResponse.json<StatusResponseDTO>(
+      new StatusResponse(displayInstance)
+    );
+  } catch (reason: unknown) {
     console.error(reason);
 
-    return NextResponse.json(
+    if (
+      reason instanceof Error &&
+      reason.message === "Hacking pipeline instance not found"
+    ) {
+      return NextResponse.json(
+        { error: "Hacking pipeline instance not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json<StatusResponseDTO>(
       new StatusResponse(
         new HackingPipelineInstance(
           "",
