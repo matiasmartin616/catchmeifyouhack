@@ -1,20 +1,35 @@
 import HackingPipelineInstance, {
+  HackingPipelineResultKey,
   HackingPipelineStatus,
 } from "../../domain/entities/hacking-pipeline-instance";
 import {
   HackingPipelineInstanceDB,
+  HackingPipelineResultKeyDB,
   HackingPipelineStatusDB,
 } from "../../../lib/temp-db/entitys";
+import { ReconResultEntity } from "../../(modules)/2-recon/domain/entities";
 
 export class HackingPipelineMapper {
   static toDomain(
     hackingPipelineInstance: HackingPipelineInstanceDB
   ): HackingPipelineInstance {
+    const domainResults: Partial<
+      Record<HackingPipelineResultKey, string | ReconResultEntity>
+    > = {};
+
+    Object.entries(hackingPipelineInstance.results).forEach(([key, value]) => {
+      if (key === HackingPipelineResultKeyDB.RECON) {
+        domainResults[HackingPipelineResultKey.RECON] = value as
+          | string
+          | ReconResultEntity;
+      }
+    });
+
     return new HackingPipelineInstance(
       hackingPipelineInstance.pipelineId,
       this.toDomainStatus(hackingPipelineInstance.status),
       hackingPipelineInstance.targetUrl,
-      hackingPipelineInstance.results,
+      domainResults,
       hackingPipelineInstance.createdAt,
       hackingPipelineInstance.updatedAt
     );

@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Next dev (server debug)",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "bunx",
+            "runtimeArgs": [
+                "next",
+                "dev",
+                "--inspect"
+            ],
+            "skipFiles": [
+                "<node_internals>/**",
+                "./node_modules/**",
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}

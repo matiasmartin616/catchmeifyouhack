@@ -4,6 +4,11 @@ import { StatusRequest, StatusResponse } from "../../../domain/dtos";
 import HackingPipelineInstance, {
   HackingPipelineStatus,
 } from "../../../domain/entities/hacking-pipeline-instance";
+import { z } from "zod";
+
+const paramsSchema = z.object({
+  id: z.uuid(),
+});
 
 export async function GET(
   request: NextRequest,
@@ -11,7 +16,12 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    console.log(id);
+
+    const validation = paramsSchema.safeParse({ id });
+    if (!validation.success) {
+      return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
+    }
+
     if (!id) {
       return NextResponse.json(
         new StatusResponse(
@@ -19,7 +29,7 @@ export async function GET(
             id,
             HackingPipelineStatus.EXPLOITING,
             "",
-            new Map(),
+            {},
             new Date(),
             new Date()
           )
@@ -27,10 +37,26 @@ export async function GET(
       );
     }
     const result = await hackingPipelineModule.status(new StatusRequest(id));
-    return NextResponse.json(result);
+
+    let displayInstance = result.pipelineInstanceInfo;
+
+    try {
+      const url = new URL(result.pipelineInstanceInfo.targetUrl);
+      displayInstance = new HackingPipelineInstance(
+        displayInstance.pipelineId,
+        displayInstance.status,
+        url.hostname,
+        displayInstance.results,
+        displayInstance.createdAt,
+        displayInstance.updatedAt
+      );
+    } catch {
+      // If invalid URL, keep original
+    }
+
+    return NextResponse.json(new StatusResponse(displayInstance));
   } catch (reason) {
-    const message =
-      reason instanceof Error ? reason.message : "Unexpected error";
+    console.error(reason);
 
     return NextResponse.json(
       new StatusResponse(
@@ -38,7 +64,7 @@ export async function GET(
           "",
           HackingPipelineStatus.PENDING,
           "",
-          new Map(),
+          {},
           new Date(),
           new Date()
         )

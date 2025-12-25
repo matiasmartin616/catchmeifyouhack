@@ -1,7 +1,9 @@
+import { ReconResultEntity } from "../../(modules)/2-recon/domain/entities";
 export enum HackingPipelineStatus {
   PENDING = "PENDING",
   LAUNCHED = "LAUNCHED",
   SCOPING = "SCOPING",
+  RECON = "RECON",
   SCANNING = "SCANNING",
   EXPLOITING = "EXPLOITING",
   POST_EXPLOITING = "POST_EXPLOITING",
@@ -9,37 +11,29 @@ export enum HackingPipelineStatus {
   FAILED = "FAILED",
 }
 
+export enum HackingPipelineResultKey {
+  RECON = "recon",
+}
+
 export default class HackingPipelineInstance {
   constructor(
     public readonly pipelineId: string,
-    public readonly status: HackingPipelineStatus,
+    public status: HackingPipelineStatus,
     public readonly targetUrl: string,
-    public readonly results: Map<string, string>,
+    public results: Partial<
+      Record<HackingPipelineResultKey, string | ReconResultEntity>
+    >,
     public readonly createdAt: Date,
-    public readonly updatedAt: Date
+    public updatedAt: Date
   ) {}
 
-  nextStatus(currentStatus: HackingPipelineStatus): HackingPipelineStatus {
-    switch (currentStatus) {
-      case HackingPipelineStatus.PENDING:
-        return HackingPipelineStatus.LAUNCHED;
+  updateStatus(status: HackingPipelineStatus) {
+    this.status = status;
+    this.updatedAt = new Date();
+  }
 
-      case HackingPipelineStatus.LAUNCHED:
-        return HackingPipelineStatus.SCOPING;
-
-      case HackingPipelineStatus.SCOPING:
-        return HackingPipelineStatus.SCANNING;
-
-      case HackingPipelineStatus.SCANNING:
-        return HackingPipelineStatus.EXPLOITING;
-
-      case HackingPipelineStatus.EXPLOITING:
-        return HackingPipelineStatus.POST_EXPLOITING;
-
-      case HackingPipelineStatus.POST_EXPLOITING:
-        return HackingPipelineStatus.COMPLETED;
-    }
-
-    throw new Error("Invalid status");
+  addResult(key: HackingPipelineResultKey, data: string | ReconResultEntity) {
+    this.results[key] = data;
+    this.updatedAt = new Date();
   }
 }

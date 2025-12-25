@@ -1,29 +1,27 @@
-import {
-  LaunchRequest,
-  LaunchResponse,
-  StatusRequest,
-  StatusResponse,
-} from "../domain/dtos/index";
+import { LaunchRequest, LaunchResponse } from "../domain/dtos/index";
 
 import HackingPipelineInstance, {
   HackingPipelineStatus,
+  HackingPipelineResultKey,
 } from "../domain/entities/hacking-pipeline-instance";
 import { hackingPipelineInstanceStore } from "../infra/store/hacking-pipeline-instance.store";
+import { reconModule, ReconModule } from "../(modules)/2-recon/2-recon.module";
+import { ReconResultEntity } from "../(modules)/2-recon/domain/entities";
 
 export interface HackingPipelineServiceInterface {
   launch(request: LaunchRequest): Promise<LaunchResponse>;
-  nextStatus(pipelineId: string): Promise<HackingPipelineInstance>;
   getPipelineInstanceById(id: string): HackingPipelineInstance | undefined;
-  getInstanceById(id: string): HackingPipelineInstance | undefined;
 }
 
 export class HackingPipelineService implements HackingPipelineServiceInterface {
+  constructor(private readonly reconModule: ReconModule) {}
+
   async launch(request: LaunchRequest): Promise<LaunchResponse> {
     const hackingPipelineInstance = new HackingPipelineInstance(
       crypto.randomUUID(),
       HackingPipelineStatus.PENDING,
       request.url,
-      new Map(),
+      {},
       new Date(),
       new Date()
     );
@@ -32,33 +30,44 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
       hackingPipelineInstance
     );
 
+    // Fire and forget - simple orchestration
+    this.runPipeline(hackingPipelineInstance).catch((err) => {
+      console.error(err);
+      console.error(`Pipeline ${pipelineId} failed:`, err);
+      hackingPipelineInstance.updateStatus(HackingPipelineStatus.FAILED);
+      hackingPipelineInstanceStore.update(hackingPipelineInstance);
+    });
+
     return new LaunchResponse(pipelineId.toString());
   }
 
-  async nextStatus(pipelineId: string): Promise<HackingPipelineInstance> {
-    const hackingPipelineInstance =
-      hackingPipelineInstanceStore.getById(pipelineId);
+  private async runPipeline(instance: HackingPipelineInstance) {
+    try {
+      // 1. SCOPING (Skipped/Mocked for now as per strict 48h deadline)
+      instance.updateStatus(HackingPipelineStatus.SCOPING);
+      hackingPipelineInstanceStore.update(instance);
 
-    if (!hackingPipelineInstance) {
-      throw new Error("Hacking pipeline instance not found");
+      // 2. RECON
+      instance.updateStatus(HackingPipelineStatus.RECON);
+      hackingPipelineInstanceStore.update(instance);
+
+      const reconResult = await this.reconModule.runRecon(instance.targetUrl);
+      instance.addResult(HackingPipelineResultKey.RECON, reconResult);
+      hackingPipelineInstanceStore.update(instance);
+
+      // Mark as completed for now as requested ("48 hours", "simple")
+      instance.updateStatus(HackingPipelineStatus.COMPLETED);
+      hackingPipelineInstanceStore.update(instance);
+    } catch (error) {
+      console.error("Pipeline execution error:", error);
+      instance.updateStatus(HackingPipelineStatus.FAILED);
+      hackingPipelineInstanceStore.update(instance);
     }
-
-    const nextStatus = hackingPipelineInstance.nextStatus(
-      hackingPipelineInstance.status
-    );
-
-    hackingPipelineInstanceStore.update(hackingPipelineInstance);
-
-    return hackingPipelineInstance;
   }
 
   getPipelineInstanceById(id: string): HackingPipelineInstance | undefined {
     return hackingPipelineInstanceStore.getById(id);
   }
-
-  getInstanceById(id: string): HackingPipelineInstance | undefined {
-    return hackingPipelineInstanceStore.getById(id);
-  }
 }
 
-export const hackingPipelineService = new HackingPipelineService();
+export const hackingPipelineService = new HackingPipelineService(reconModule);

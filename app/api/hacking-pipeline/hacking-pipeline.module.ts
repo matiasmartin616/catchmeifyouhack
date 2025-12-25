@@ -24,9 +24,10 @@ class HackingPipelineModule implements HackingPipelineInterface {
       throw new Error("Pipeline ID is required");
     }
 
-    const hackingPipelineInstance = this.hackingPipelineService.getInstanceById(
-      statusRequest.pipelineId
-    );
+    const hackingPipelineInstance =
+      this.hackingPipelineService.getPipelineInstanceById(
+        statusRequest.pipelineId
+      );
 
     if (!hackingPipelineInstance) {
       throw new Error("Hacking pipeline instance not found");
