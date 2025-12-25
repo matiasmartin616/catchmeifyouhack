@@ -6,15 +6,19 @@ import HackingPipelineInstance, {
 } from "../domain/entities/hacking-pipeline-instance";
 import { hackingPipelineInstanceStore } from "../infra/store/hacking-pipeline-instance.store";
 import { reconModule, ReconModule } from "../(modules)/2-recon/2-recon.module";
-import { ReconResultEntity } from "../(modules)/2-recon/domain/entities";
-
+import { reportingModule } from "../(modules)/reporting/reporting.module";
+import { ReportingModuleInterface } from "../(modules)/reporting/reporting.module.i";
 export interface HackingPipelineServiceInterface {
   launch(request: LaunchRequest): Promise<LaunchResponse>;
   getPipelineInstanceById(id: string): HackingPipelineInstance | undefined;
+  generateReportByInstanceId(instanceId: string): Promise<Buffer>;
 }
 
 export class HackingPipelineService implements HackingPipelineServiceInterface {
-  constructor(private readonly reconModule: ReconModule) {}
+  constructor(
+    private readonly reconModule: ReconModule,
+    private readonly reportingModule: ReportingModuleInterface
+  ) {}
 
   async launch(request: LaunchRequest): Promise<LaunchResponse> {
     const hackingPipelineInstance = new HackingPipelineInstance(
@@ -68,6 +72,17 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
   getPipelineInstanceById(id: string): HackingPipelineInstance | undefined {
     return hackingPipelineInstanceStore.getById(id);
   }
+
+  async generateReportByInstanceId(instanceId: string): Promise<Buffer> {
+    const instance = this.getPipelineInstanceById(instanceId);
+    if (!instance) {
+      throw new Error("Pipeline instance not found");
+    }
+    return await this.reportingModule.generateReport(instance);
+  }
 }
 
-export const hackingPipelineService = new HackingPipelineService(reconModule);
+export const hackingPipelineService = new HackingPipelineService(
+  reconModule,
+  reportingModule
+);

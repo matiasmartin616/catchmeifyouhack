@@ -13,7 +13,7 @@ import {
     CheckCircle2,
     XCircle,
 } from "lucide-react";
-import { useStatusService } from "../../data-layer/service-hooks/use-status.service.hook";
+import { useStatusService } from "../data-layer/service-hooks/use-status.service.hook";
 import { HackingPipelineStatus } from "@/app/api/hacking-pipeline/domain/entities/hacking-pipeline-instance";
 
 interface AttackStatusDashboardProps {
@@ -121,6 +121,11 @@ export default function AttackStatusDashboard({
         return `${mins.toString().padStart(2, "0")}:${secs
             .toString()
             .padStart(2, "0")}`;
+    };
+
+    const handleDownloadReport = () => {
+        if (!pipelineId) return;
+        window.location.href = `/api/hacking-pipeline/report/${pipelineId}`;
     };
 
     return (
@@ -264,7 +269,10 @@ export default function AttackStatusDashboard({
                         </span>
                     </div>
                     {isComplete && (
-                        <button className="bg-green-600 hover:bg-green-500 text-black font-bold px-4 py-1 rounded text-[10px] transition-colors">
+                        <button
+                            onClick={handleDownloadReport}
+                            className="bg-green-600 hover:bg-green-500 text-black font-bold px-4 py-1 rounded text-[10px] transition-colors cursor-pointer"
+                        >
                             DOWNLOAD_REPORT
                         </button>
                     )}

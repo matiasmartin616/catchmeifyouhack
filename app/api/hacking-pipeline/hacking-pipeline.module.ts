@@ -35,6 +35,12 @@ class HackingPipelineModule implements HackingPipelineInterface {
 
     return new StatusResponse(hackingPipelineInstance);
   }
+
+  async generateReport(instanceId: string): Promise<Buffer> {
+    return await this.hackingPipelineService.generateReportByInstanceId(
+      instanceId
+    );
+  }
 }
 
 export const hackingPipelineModule = new HackingPipelineModule(
