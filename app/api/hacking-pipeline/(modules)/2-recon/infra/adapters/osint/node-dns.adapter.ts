@@ -7,7 +7,7 @@ import {
   CaaRecord,
   AnyRecord,
 } from "node:dns";
-import { DnsAdapterPort } from "../ports/osint.ports";
+import { DnsAdapterPort } from "../../ports/osint.ports";
 
 type DnsRecordResult =
   | string[]

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { promises as dns } from "node:dns";
-import { GeoIpAdapterPort } from "../ports/osint.ports";
+import { GeoIpAdapterPort } from "../../ports/osint.ports";
 
 interface IpApiResponse {
   status: "success" | "fail";

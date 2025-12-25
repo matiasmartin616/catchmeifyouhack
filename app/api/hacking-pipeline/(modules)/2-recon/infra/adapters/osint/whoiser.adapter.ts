@@ -1,7 +1,7 @@
 import { whoisDomain } from "whoiser";
-import { WhoisAdapterPort } from "../ports/osint.ports";
-import { WhoisMapper } from "../mapper/whois.mapper";
-import { WhoisEntity } from "../../domain/entities/whois.entity";
+import { WhoisAdapterPort } from "../../ports/osint.ports";
+import { WhoisMapper } from "../../mapper/whois.mapper";
+import { WhoisEntity } from "../../../domain/entities/whois.entity";
 
 export class WhoiserAdapter implements WhoisAdapterPort {
   async lookup(domain: string): Promise<WhoisEntity | null> {

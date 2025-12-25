@@ -11,7 +11,7 @@ import {
   NodeDnsAdapter,
   CrtShAdapter,
   IpApiAdapter,
-} from "../infra/adapters";
+} from "../infra/adapters/osint";
 
 export class OsintService implements OsintServiceInterface {
   constructor(

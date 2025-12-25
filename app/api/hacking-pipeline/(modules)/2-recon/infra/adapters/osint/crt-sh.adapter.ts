@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SubdomainAdapterPort } from "../ports/osint.ports";
+import { SubdomainAdapterPort } from "../../ports/osint.ports";
 
 interface CrtShEntry {
   name_value: string;
