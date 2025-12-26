@@ -1,0 +1,808 @@
+{
+  "usableSessionsCount": 18,
+  "retiredSessionsCount": 0,
+  "sessions": [
+    {
+      "id": "session_i0EGcFSglu",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": []
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:47:53.684Z",
+      "createdAt": "2025-12-26T10:57:53.684Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_vkrRndI3Oz",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IloyUmF6SzBtb2lHT2hLSDZnM2s1L2c9PSIsInZhbHVlIjoiS0dzZEpRaWZ2VDNQWnMweGp3cGJlZHdUQnVNS25hSzk2emlZQzdXOWdOY1N1QUt3QnE1V3Y1OXd2MDNWS2hoVGdHN1R4RVRqZjV3TmlzN1F2Wm9LOHZta1ZZT2xsSzdwY1Vjb2pmOEx0SFFrUVF5a0wva2J5aFg5Ykl1QkFkV3UiLCJtYWMiOiJlNmMxMzU4YWJiMDJlMTE1MmE1N2UyNGMxYzNhZGM5Y2I5ZWZkZTdhYjcyZmMxOTJjNGY4OWM5MzUzYjFhZDIzIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:29.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:28.839Z",
+            "lastAccessed": "2025-12-26T11:02:28.839Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6IjAveEt1ZFFlS0QycThwR0h3Qlh2cEE9PSIsInZhbHVlIjoid0R6RUl4cGovMUptTVFwNUNQeWVVZ24xRG53aEx3N0NkODhCcEU4MnVrbzNBV1dBa3l0WTJ5WThuKzBCSm9tV2RXZnI4R2tXQkhTeVNia2Q0eDBsNkZuVjR0YXdWT21XL3Q1clVtajBwNmxaaTNaNXhNUkNnTUVXZHpzcUhPQjAiLCJtYWMiOiI4OTg1ZTVhN2E1MzYwODA0MWU4YjcyNDNjOTViZmUzOGZiMjk2NDc3NzNmMjNhYWI4MGUwM2ZmYzdmYjNjOGFhIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:29.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:28.840Z",
+            "lastAccessed": "2025-12-26T11:02:28.840Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:28.463Z",
+      "createdAt": "2025-12-26T11:02:28.463Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_OAw0FUc0dC",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6Ikc1NkcvTkprZEVybXowM1VYZUZsZFE9PSIsInZhbHVlIjoibUZ2c1hLdnlzV1JSZ2hiYkpzZjBOZ3RMREpXOW96YlNSYlk5aGp3eGtmeXRrS1pqL1BUSmpqZitQeTZsVjdQdkpkNVhVRVVaVHY1TXRxNDM2OW1lV2dVby9UZnNwOG5HNzh2d3owTjg2RVgxWWUzazlKcUxFSm0xUFFXZVFFRU0iLCJtYWMiOiJjYjg4MDJiOTdhNTViNmE3ZTU4MzE2ZjdlYzgwODhmYjQ5NzBhYTQ1ZmNjMTM3N2Y1OGMxN2ViOTljNDg2YWUyIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:29.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.160Z",
+            "lastAccessed": "2025-12-26T11:02:29.160Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6IjVIUHk3WXBrbFFEcmdhdGhsOG94cEE9PSIsInZhbHVlIjoienZpN3ZENC82aVRpbFF4d2lXVFlTRUxhS1VUYnVSaVkrT1VFUU1SVk9OQlZhdnhMQUVhY05kLzNFRHNxNC9GRmNkRUFmSWFuZTkydkNjNFEyZFhhTlEvNjFvcG1OUCtMMWo0dEpYTWZBRkYyYjNQZlFaM1EvSlJCcXZKWW80NmsiLCJtYWMiOiI2OWI2NDM0MWU1NTE5MmYxZjhkZWNhNzQwYWU2MDM1NzM1MTU0NDM2ZTYwYTEyYjcyNjU5NGRmMmYxMGFhMGZkIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:29.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.160Z",
+            "lastAccessed": "2025-12-26T11:02:29.160Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.089Z",
+      "createdAt": "2025-12-26T11:02:29.089Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_gJybjnRDkA",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IkViUXMrT0dPTEx0eXJXSnZtdEZGUlE9PSIsInZhbHVlIjoiMVVPKy9mbnAxaEFoQ2N1djJwdStNYXJPdXN6OTJqMUI4b0h6YU9lNEJETVorQUFiY0ZxdCtxRUJqR3QzU1h6SUtxa0dzdndGOHRMWW8vbG4xbmlDSWoycmlwM1phNUlic1hleWNLYWhZemVKS1FSWmxGUkJkYm42RXQ0SVltQWIiLCJtYWMiOiI5ZmI3Yzg2YWM1YWZjY2UzZjQ0NGQyODVlZjYwMWU1MTE4NmUzZjE2YjQxYjg4ODNkMTRlNjIzNzc3MWY1NzcwIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:29.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.191Z",
+            "lastAccessed": "2025-12-26T11:02:29.191Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6ImdjM3hkNDhuMnIyUm5GdVBVd2p5L0E9PSIsInZhbHVlIjoidENKS0hjZ1RWb2dKdE4zWUhGcmVLVmJxZXVUcTBKbWJWbU4vZW54TXZ5enpKM1R6VDdicEE3ZkRvaWV0ekdFeHc5a0QzejNiWlZRU0QvQlBlMFlNMHJkNDdwa1R6NzZNUmFCL21nQzFpRjdOK00wN2RLc2hpTkNLWU1BR0N2L3oiLCJtYWMiOiJjYzdkYjAzN2M4YmU5NGM0OGYyYWJmNGQ0ZGU2MDI0Yzc2NjExMWQ4Njk1YWVhMjVkZDY2NmRlNTUzNTBmZWMzIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:29.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.191Z",
+            "lastAccessed": "2025-12-26T11:02:29.191Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.123Z",
+      "createdAt": "2025-12-26T11:02:29.123Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_2S0Hp24Xfv",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6InpJRzRxNitjVGxhaStJL2NFVGdpclE9PSIsInZhbHVlIjoicG16SUVKa0tYRERGajVxT3g3bXZISjJNbEt6a1hxWVl3T1JTZk00Z005R0ZnZHJab1FNWFFxM09xQjBlbnl6ejcrMXExNGFNREVwUWwrcVl6OUJxOVdkWk5pVVc4QkkyaEFSeGRocUc4VW9uNEIxTGJiNVVxbVJ6OEdpaEZidWgiLCJtYWMiOiIxNzU0NTRiOGZlZmU4ZDE0MDA1MGU3N2RlMGE0NTYwZjY3NzA5YWRjOGQ0Nzk1NWQ0MTFiYTRlYjFhN2Q3ZjNhIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.430Z",
+            "lastAccessed": "2025-12-26T11:02:29.430Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6Ii95MTVkNGVrbzcvZHZVOGF0UGd0VFE9PSIsInZhbHVlIjoiRW1XaUZybnhMYmJQZkVGdVQ5NU1VbXI1ZnIycU1DR3FlNURIWEw0VVBrbkUvYVBoT3ZSaVFFdFYrS2VvNzh2WFRoOUYzRE1zZDBtSFBYbnhiTXFBTVZlRityYk82dUkrUGRmdTF2blFvQjZTSVBTalNZd01xVkROcFZNUXFPNGciLCJtYWMiOiJmYjI1ODY5ZmVjMTc5MGExNDYyMzkxZDUzYzMwZDBlNjFlODhkMTI5YTllMDIwNTU4ZjI1OGJhOWI5MmU5YTVjIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.430Z",
+            "lastAccessed": "2025-12-26T11:02:29.430Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.177Z",
+      "createdAt": "2025-12-26T11:02:29.177Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_0fmbI4SCAg",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6InZZZDdPV05heFVva0lPQUNBaGdLQnc9PSIsInZhbHVlIjoibUEyWU1sSDRsUy81eWxyU1Yvc3QyTkxVL0ZJT0toR3A4eXl4ZG1RWWhWUUJBVkhycFQ3SytpRkRxbkZKeWxXUmFpMW5sR2dFSTlOMWZkdGNyMTZ1aW1CVy9lU1FONjZFQWNNMzdSVXIyUEl5TjZXVVdVK1RpMzBRbzFOdVFZMG8iLCJtYWMiOiIyMTM2N2E5MzgxYTZhOTI1ZGJmZDZlZWIyMWM1OGZhZDIxMmJjNjEzNmU5OWEzNGVlYTMxNWVkZTE0NTQ2ZTBkIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:29.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.295Z",
+            "lastAccessed": "2025-12-26T11:02:29.295Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6Im43cjBpQlY0M3EwNmxWd3QyclEzeUE9PSIsInZhbHVlIjoiWk9yRlNWbFFCWE5sdy9JS0U0NlRtYVJndzd0ZFVUdHRraUxDRldTMFRNdUd3dmEwaUg4dDVjb3k4SGVSSWk2VUs3UlM5cXgvNlpxbllXbWNrVmlEVytjNS9aeE1qQ2o5bFZSN2hTblpLclVaakVETW80NFJIb0NNYThUUnZaeDgiLCJtYWMiOiJjOGE2ZmI1ODdlY2UwMmFlODA4MTliYjQ4ZGQ4YzY1OThmMjFjOTFhZWIxNjAxNWY3NjY2MzY2ZWRhNDljNzU1IiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:29.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.295Z",
+            "lastAccessed": "2025-12-26T11:02:29.295Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.206Z",
+      "createdAt": "2025-12-26T11:02:29.206Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_tom4znibz2",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IkNTZ21IUGtXVkZNeHNsMmhsNHlIcWc9PSIsInZhbHVlIjoiZ0dFdC9NZDNtY3cvb1RkZEZPbFdlNTB6QVdrM2Vkdm1keGVraUJWcXpyMU8zM0ZTSUVKSDM4b251Z0RxL3hJOThYWkNXMGxRbDE5bHdaRzhuekRRQkVndE96RGc0OUU5RFBPZHBsQWlwMFl0U29MM0lPVzJlNTBPRzNGRnQzVVkiLCJtYWMiOiI0YjlhM2ExNGUyZmIyNzQ5MjNkNjc3ODA5ZTg4NjM5OTBhOTY3YWI3NTA1MjViMmI2ZThjYWJkOTg0NTIxZTJmIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.438Z",
+            "lastAccessed": "2025-12-26T11:02:29.438Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6IkI0VW5BbWhWMVRJUUEwM3JJeDZMc0E9PSIsInZhbHVlIjoiUTJ3RS9tNUpmdWdRVFN0WFBaT0VGV2k4L25na3B2MDhlVTFQZE1QNHRLd2dHN3JRZmxPOEt5RmxtanI0TncxUE5CZGsxMjhHaC9IbzhhUFFmbkpPVHAzbi9jeGxzb1d4ZXpnUXdYd0RLM1NUOFZyV3JPWWFxbFRQVXZJTnpyUXgiLCJtYWMiOiJlNTdhZDU2ZWYyNzYyYmQ1YmNlZThiMTVhMjVkYTI3ZmIwYzM0OTM2MDkyMTVlMmIzMzkzMjVkYzkyZGI4ZWYzIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.438Z",
+            "lastAccessed": "2025-12-26T11:02:29.438Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.316Z",
+      "createdAt": "2025-12-26T11:02:29.316Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_BBX8XQOkyC",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IktMczV3S0VlVDI5VmhEcHkzUm9LSFE9PSIsInZhbHVlIjoiemswYkVqc0c3UFA5TVBwY3JTWU9VUDNGRmxoeENDL3NGMnJoOU9acDVtYXVlVFFFVS9OWEdTMzlqM1dUVjB2NTBrOTRmRWU3TnJRdFNBWXhlbVhraE5XK1kvOGdQR3kzQmNxa0x5U3FJdEdWc1EzQ0gzdUp2YzZ2QUFpYm5rY3oiLCJtYWMiOiJiOGE5NzNlNzZjOWE4NjRjOThhZWYzMTM1YjY0ZTFlNDhlNTU2MDE0ZWM1N2Y4NWY4MmFjYjgzOTM0NDEwZjM3IiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.720Z",
+            "lastAccessed": "2025-12-26T11:02:29.720Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6ImVubTlTMzA1MHBmSTFOS2JpUVUySkE9PSIsInZhbHVlIjoiQXJUMlcrMytKYkx2UFpNb0VKS3I5WHd2OUJFT2EzZGJPUGdVZ1RHSmtKNDVWb3RrUGFCZFF6MjVXSVFkMktkcEU4Tms2VmxwbFFOU1IrQmJEZmUyelZRazd4U1BkL0dEZDkrV1puYnp6YTBVMWFYOGcvSnJEQkxCT0hLK0RTcm8iLCJtYWMiOiIzZDcyMzFjYzMwOGMyMjk5OGUxZjY3ZTBhNmU3ZjUxNjVhNDA5MWI2MDFiOWRiNmY0OTkxNWQxOWUyNDUwODkwIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.720Z",
+            "lastAccessed": "2025-12-26T11:02:29.720Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.456Z",
+      "createdAt": "2025-12-26T11:02:29.456Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_QmDVlcb0cF",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IlJsWlhlSlQ3NUZXczVzUkJiVUpzWGc9PSIsInZhbHVlIjoib0pORUZ6L2R5QWViRUV1bDNIS1ZEM1REbFlZMFdqZXhvYnVaeG8zY2pyMUhscnVxMUdZMmVFUGEyem43LzRUOGxRaW5uMjllVGtmRFJHMWdLTU1aVzROOVpjSjVQSmVUNkNreVo0Tld6elVvNkJ6ejExM3hxVlowcVVlUzhudkIiLCJtYWMiOiJlYmU1Y2NjN2YxYjcyOTQ2NjAxMzQ0ODYyMWQ5YTYxZWZiMjU1OGNhZTM4Y2IyMWJjODFhZmU0YWQ0M2Y2NjQ2IiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.701Z",
+            "lastAccessed": "2025-12-26T11:02:29.701Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6IkZMSSsvZzFuQ2x0Rm4vZGtUcCtidlE9PSIsInZhbHVlIjoiKzdOMHV6ZjVrRlc1N1gxSXUzZXpqTVpsNS95NmRGRW5HWGlnMWFKVHNkQmErbmtxOVMrYWFIc0VXSWFiYVVSdkp1aTZvQUdTTkQ2QTRadWdGVDQrditNSll3aWQ1VnMvTFRiMGM0cmZ5Z3VoSWdZN0ExMFJ6NSt4OVpyZDJMZ2MiLCJtYWMiOiI2MjhmZjVlZWEwOTk0MjFhODcyZjY5ZGY2N2RlMDBmMmRjOWViNmJjZjZmZjNmNmM1NjkwOTU0ODJmZGRjYmM2IiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.702Z",
+            "lastAccessed": "2025-12-26T11:02:29.702Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.464Z",
+      "createdAt": "2025-12-26T11:02:29.464Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_DCuDYUhCxH",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6Iis5b2xrK0NGSURnUzNrTVZoeHpoVkE9PSIsInZhbHVlIjoiU2pJcG9ienBScWs0WnFEckQ1NjdYeVJLZzdMZjdsL0E4bUh0b0NSN1FGV3dVbWQ0TXhzNEVBR21ETmVmdnNDbnc2S0s5NDNvR1R2cStOQ3JNKzZ1L2xNYlBmR2t4SHN3TUtPWnl4Sm1TTFdMejFJcXFWdTdKRlNKMytyZDgrWS8iLCJtYWMiOiJmZjdiNDg2YTdhOTJmMWEzZDIwZGU5MGJiNzgwNzg2MjBiNDgyMWUxZDAwNjJiNmRjN2Y5ZmRjNGEyNWEwZTBiIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.840Z",
+            "lastAccessed": "2025-12-26T11:02:29.840Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6IjFLZ2c0aUgxUEFnNGVsOEhCbEVCTmc9PSIsInZhbHVlIjoib05hN2FDQkg3QkhWQ2cvL3Y0dWU0OFBZTTR4UTk2OVcrcWNDOHhqK2pKanZlQTlxOGtWN0ZGdmVBWEI1VXpOd1NkUkdNbCsrMWd2QWpySStSQ1F5dzExUldCWExBTXNXbDVzQVJlZnhlMUYwWTROSnNMcjR6M3FBRmdnUWFrb3oiLCJtYWMiOiI0YzJjMWZlYThhM2QyYWU2MDFlZGFlM2ViODA4NjYyMThmMmE0NjcyZDk3NzdlMDI5MzRmOTE5OTVhZjIwNjUyIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.840Z",
+            "lastAccessed": "2025-12-26T11:02:29.840Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.746Z",
+      "createdAt": "2025-12-26T11:02:29.746Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_xYfV4ScGYl",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IndXSFRpaTdGZkhyZU1uUFRUWGNnRWc9PSIsInZhbHVlIjoia1VWRjl4WWRBeWdNb0dJQWxZcUtaQ1BpR2Naa2xKK1RyWjdJZ0FTRHc1ZVl4ZURWaEx1RTg0WGNsdXNEUVBhNW9LMmtpUkRRdEZsay8zM1EySHVOdkVnNEJ5UlFid0Q0K3MxQkJXQWxSYzk4QXBsalFsWlZ1NEpNUGdFM1pvMDAiLCJtYWMiOiJmYmY3ODc4MjNiZjg1MmVlMjY0ZTFhMTU1OTFiZjI5NjdhN2UwZmJjMzcxODdiMWFkMTYyNDU2NDkzMzAwNDc0IiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.985Z",
+            "lastAccessed": "2025-12-26T11:02:29.985Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6IjlFZ2RPbjgybzhUSFduVGFTL3J6RkE9PSIsInZhbHVlIjoiaDlZUXE0VGZFWWdFeXZiUmZBa1Y4dUgrVUlkUW5OMVYrY2tJWmRWNnd1SEUrelI1V1ZNK2pWbE1IWHVuMnorWlBxVSt4Zms4MkZ2Q0ZhSER6MzhxYmdJVlRZc08zNDMrWkVsTjdYTzBmTzc3UTVBZytNZFh2MlNPM3FCdUVhOXYiLCJtYWMiOiJmMmIyNzFlYjJkNzZjMWEyZDIwMWJlM2Q1YmQ5ZGJiZDljMDc3OGU5YTEyNDlmZTEzMTQwMTkwMDEzYjZiYTNkIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:29.985Z",
+            "lastAccessed": "2025-12-26T11:02:29.985Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.756Z",
+      "createdAt": "2025-12-26T11:02:29.756Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_HBnCS2eop8",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IjZPU0lONllJVWdTZ2FBcVJNalFBcFE9PSIsInZhbHVlIjoicnFhU21VdWgyUlEzMWIrM1RtN1lGSkhIdVEyc1NlbVFFcjBxVFhsZlMxZzFXMjc5MG1EM3kyNE8rNDBiME1hNUNUQVlFUUdjZW5PVlFTY1JVampKV3hTVnlRSVNHMmZFZFgwUEFzWEQ5dmZydlhsQ2VNaFZwMlBnd1NXUWkvR3EiLCJtYWMiOiJiOTA5NTU1MTQ3NzE0MDk3NDEzNDQ2YWY4MTkwOGUwOTg3ZWNiMzg2ZWE1MjExMGFjMTE1MzU3N2QwNmJmNWIxIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.511Z",
+            "lastAccessed": "2025-12-26T11:02:30.511Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6Ii9VWnV5WHdkYkMzQjBvK1R2d09LQlE9PSIsInZhbHVlIjoiOGpzQnc4ZlpLUjd2NWdKaGpJYkFCZVlVR0trcXFHc2pPRUZlUXBaVndTeHFHdFczM3BtaEZvcXRmZEprMk9DQm85SWxwNGp3ekpkM0paUENxaVIwUldQSWVORWtEaUxweWdIMGZUQU4vd1cwVllrNGFEOVU5L29ZLy95WHQzRDciLCJtYWMiOiJjYjViZmYzYzk2MjJmOWFmMzQ5ODE4YmExNWM5YzM0YjkxODY1NzI0N2Q1ZDI5ZWJiNDg3NDUzNWY2ZjFjM2U0IiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.511Z",
+            "lastAccessed": "2025-12-26T11:02:30.511Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:29.859Z",
+      "createdAt": "2025-12-26T11:02:29.859Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_zdy1mrQQPc",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IldJRFFkeTZoeDkzdnFFL2hGaTlEVlE9PSIsInZhbHVlIjoiSVZOVldzdndXdkFsajNyaVV3SVZaYW5mZE9VaFQvc3U2aXozZDNZRUl4WmU4NkZ3akpXQUI5d2JDVDhRUSs3QzczblIvRUhpMndJenhZR1p5MXVBaGpUcDc5czJCVHJ6YnpCNUJDdXhvMGh0RnVacVVwSmdDL1N4VXgxcUFuakgiLCJtYWMiOiJjMDMyYjlmZjk0YjBjNjdkMThkZTg5YjNhMTk0MzgwYWY2YTJjNzNlMzFjNmU1NWNlZWMwYTE4YThiYWQxODY3IiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.092Z",
+            "lastAccessed": "2025-12-26T11:02:30.092Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6ImxhOUg0WUM5eCs0YUZPZlpURlhMWnc9PSIsInZhbHVlIjoiSDdDZlpaaWF5dFRsZm9wK051MFZFQXFZU04rQ2FiRitOcnBlVTNUK2F3UDBRR1pTMExoU1FwcHFWOFA4L0F6WWk3TEFEem5FSHJ3cmpFVElhc1laWkQ5WFhGVzZHcWpZaHhrbGp1UURxeVZoQnRhR2tQOFl4MmxLTTZ1M0ROVDYiLCJtYWMiOiJlZDZhMjFmNjc2NmM2YjczNGIxNjYzMzI3Y2ZhZGI5ZjM4YmMzNTA3MjRiNmUzZGE3ZjIzYWZjYjY5ZTZmMzlhIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.092Z",
+            "lastAccessed": "2025-12-26T11:02:30.092Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:30.001Z",
+      "createdAt": "2025-12-26T11:02:30.001Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_zKv6vci2aL",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6InBrTWpCdDhSRFRjMmVRR2FmeVYyRGc9PSIsInZhbHVlIjoibUY4NFdCbVJ2S0ZLcmhtSXNvQWJ1LzhxSWJncTJtMDdpZ0VkTWtXall6T2JZY1o4RUo3WVN6OHNPc08vNGVVZm1UQWhvQ2Zyd0lTaTk2UzE5R3grWEE5NnVnQmEwenNCSHBtVTV5MXczbTJYU01qVVIvdUVPOEs5T3lhK0NsdTUiLCJtYWMiOiI3MTdmN2FkYjEyNmJjNzQ2ZmZjMGFiNTJkMWI0NWNhMGRmOGUzNWFmMjA2NTI1N2E1MzBiNjM2MzU2YzhiOTIwIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.205Z",
+            "lastAccessed": "2025-12-26T11:02:30.205Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6InBrQ0JsU2gvWUpsQnkyNEZBeE5FcXc9PSIsInZhbHVlIjoiSUlZMk42clBVUUJMQTJKRmhsVVkvSHYvaTVLOTdiL3lGcVpOS0RqSERXYTd0Y2tKMWdvYlVJT3NUR29lQ1J1dk5VSVBmbGFqM2xxWWlNVnhqRFBTakpMTUI3dmE5dE4xR3R1K2hsbnZHN0lvWFZUaWFYN2t4Mm5GMDR2YnA0SGUiLCJtYWMiOiI2ODBlOTJjZjhmZmY4N2QxN2M4NjFkMTI5NmNmMDE1MmIwZmJiZDU0OGUwZDc0ZmIxMTU3OGJhMDBmNTBiYzJmIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:30.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.205Z",
+            "lastAccessed": "2025-12-26T11:02:30.205Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:30.111Z",
+      "createdAt": "2025-12-26T11:02:30.111Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_Fu3e5a8W5g",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6ImJQMHV6RVRoQ2VqMHdKOGk2MW5VUUE9PSIsInZhbHVlIjoiMCsxVldrdXN0VGhUbEYxMmFhUmt5SWN4dGpZblp0anhHdTNlSnkyNjlUNDNGcGxndCtJaEYwMnNNaUFHQ0V6M1RIWTJZQ0N5dytLV0tacnBKbDdQbjEzL0Nrd2Z4K3pDVmg5NEdUVkwrSk9yQ2hmbCtIUjI0RUpNbmhQaEhTUGMiLCJtYWMiOiI0ZmY3OTYzZjI4MTYwY2ExMWU2ZDY2OGZjMjQzZTZmZTEwNGI2ZDI3OTE2OTRhM2Y2ZDA0MmU2YTM4ZTBiYzVhIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.531Z",
+            "lastAccessed": "2025-12-26T11:02:30.531Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6Ikk5UTNLbkFHMFpTaGt0THFtTUt6OFE9PSIsInZhbHVlIjoiTzF2aFdQSGRFU0hma3dHOHAvQmJldDRVbHpuck9obGhWdmxUeXdtNG01RjFTVm1HL3ExM0R4NURDeVY2cDNsOWJSUXZ6WDVrencvK2djYUFqaGhrZ3lGQThmY0ZlSjBscWprZ0s2czFxam1Jalp6a2NZZUtVa3hlbE9xNGQxQU4iLCJtYWMiOiJkZmMwMWE3YWM4MGJhZGQ4YmZmYWU2MTAyNzc4NDNjZmY0MTBlMWRhMDEyMzA4NDk2NzRhOTVlNGQyMGM3NGFiIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.531Z",
+            "lastAccessed": "2025-12-26T11:02:30.531Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:30.221Z",
+      "createdAt": "2025-12-26T11:02:30.221Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_LX4jln31BN",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IkY3d0xRdzRBZTkyTFV3cnFBNy9Ba2c9PSIsInZhbHVlIjoiTGFXZldMRTM1MUxsazdTV0lQMmhHSS93dG52Nm9jRXVkYWVENmNZSVFyL1U3TjRRQWsxZnY1Wk9KbXBZWGxqUndiUDFpNjhaM2FpUDNubUNCVjFkU1JvMjlob1RtbGJqNStSNnRhUnhzOEJ6MDd2eWJQYlg4S3dGMGFwWElJU0oiLCJtYWMiOiI4ZmE0N2FmYjA3NDhmMWI1NjZhYzA3ZDg5ZWMxYmQ2ODZlNGY3MGIwNjJjNTUzYTA3Y2IyZjBkYTkzMzNkZjRmIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.599Z",
+            "lastAccessed": "2025-12-26T11:02:30.599Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6IldiaUhYbm16SFZJM2dZU3c0WmFnTHc9PSIsInZhbHVlIjoicXkzOGxQQS8rQnV3U1EwU0h6YWJVbE4yejJRTkFQa1ZuMzVXWUJpdVBYNE9nM092SHkvd05WV3V2Y25yU0ZTc3ZtUDY4VEpBZXBESGMzNHBBZlhUR3JtZlF2a3B6Y0hkS1kxWmljWnpjaG5CVVNLZjE0K0V6R0I0bU5HZDNacEYiLCJtYWMiOiIxMGNjMDk0MmJiNWViZTM1YzBlODgwNmU4MmNkMDE2ZDlkNzE1OTAyZWJiNTA4MjljNDAzOGFlZTRlZjM1ZjNkIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.599Z",
+            "lastAccessed": "2025-12-26T11:02:30.599Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:30.524Z",
+      "createdAt": "2025-12-26T11:02:30.524Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_ab7iaG18V6",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6InNCTk5yTm9HNGNnSVMxUDRRM3RkV1E9PSIsInZhbHVlIjoiRUpIemtOTzY5UUJsMjZDb3dCRWRiZmZ6a08xSmtGUUpMK291ajd0d3gxUExFV29rTEVhZzBsa04reWVsRDNYdDAwNkdiU1VZd0pYNkZsODZERjdiMVpCS3JJbWdQbFpOMUFtbWRZeTRhTlFIcWQ2Q2pFMEtiU1lDTkNKYStaUlYiLCJtYWMiOiJhYWU2NmEyMjRlN2NjZTkxM2I0MzMyNDcwYjg1MzUxN2Y1ZTAyMjIzOWM2MzE3NDc1YTgxNDk4MmJkNDhhNWFmIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.627Z",
+            "lastAccessed": "2025-12-26T11:02:30.627Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6IjkzL2w5YllwckwvanRxeUlQRHpaWGc9PSIsInZhbHVlIjoiWThjV3ZwV1h3R0IvaldyQThhNzFQbUV6aEpDN3dlWloxNmtnOGhYUDJZQTR0SFhDeEFDRnF5bFpQS0dBTDFkdExSelhBRGlZbW1SMkp5RGVRc2VseW9LMXBLRnZGVDVxVmtxaTFoUTMraTFqcFMyWC81U0JhWWs4VzJUckF2djIiLCJtYWMiOiJmNGE4OTBhNjQxYjJmZDhmYTBkNzkzMWYyM2M5MjAyNDM5MjkzMWU1Mzk3NGI4YTNhYTY0ZWIxODJiZmQwY2MxIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.627Z",
+            "lastAccessed": "2025-12-26T11:02:30.627Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:30.547Z",
+      "createdAt": "2025-12-26T11:02:30.547Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_Mj84csaM3z",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.0",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6Ijk4YmVNTVNUY2xKa1k4WlhlREhlbUE9PSIsInZhbHVlIjoiT1VObU1maklJMytOOU5jeGdXSzRDWUFibkpwY3krdHdUdEpjRDBoRVVuTmZzVGs2bzd1UUxDT0oxU0JFd3g1alpGTWphR1VHdDllaGdTdWZJcW0veVc4MU9lRTcvQkxNTTNBZlQyeGxScnc1Ung4NHkxekRCQ1pRdHFNR2c5TTQiLCJtYWMiOiI4NjQ4Zjk0ZGI0M2VlYzRiNGQ5NmJhOGVkMTFmM2EyYzgzN2FlZGNjZjE0YjAwYjA3YWE3MmNhNTYzY2MzYmYwIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.714Z",
+            "lastAccessed": "2025-12-26T11:02:30.714Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "findjobs_session",
+            "value": "eyJpdiI6IitTbnRCL2ZGOEFyNWhlWWtNZlY4VFE9PSIsInZhbHVlIjoiQzlNUU9ZblRHc0NTNDVIS0JRa3FjTlh2YWFYTWVWTFhIejA4K1lDQUV4MTJvUHhPZVFnZ09vQ1U2bVF3c2NiaVh1bUpRblV2Mnh4Y2hCSmdrZnBscmt5RjNwR200RGdaQmVmcytyU0hSWHpVVTlQQ0U1K3pQVzdPZ0Z3WmtLUjEiLCJtYWMiOiI0MDc1ZjZiODI1ZmMxMWZiYTJlZTUyOTAwYWFmOWJkNTAyOWQ5NmIwNGY3OThlNzY3ZGU4ODkxZTY0ODVkN2FkIiwidGFnIjoiIn0%3D",
+            "expires": "2025-12-26T13:02:31.000Z",
+            "maxAge": 7200,
+            "domain": "findjobs.matiasmartin.dev",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-12-26T11:02:30.714Z",
+            "lastAccessed": "2025-12-26T11:02:30.714Z",
+            "sameSite": "lax"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-12-26T11:52:30.636Z",
+      "createdAt": "2025-12-26T11:02:30.636Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    }
+  ]
+}

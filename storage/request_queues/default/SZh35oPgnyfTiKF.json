@@ -1,0 +1,9 @@
+{
+	"id": "SZh35oPgnyfTiKF",
+	"json": "{\"id\":\"SZh35oPgnyfTiKF\",\"url\":\"https://findjobs.matiasmartin.dev/joblisting/12\",\"loadedUrl\":\"https://findjobs.matiasmartin.dev/joblisting/12\",\"uniqueKey\":\"https://findjobs.matiasmartin.dev/joblisting/12\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"depth\":1,\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2025-12-26T11:02:29.435Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://findjobs.matiasmartin.dev/joblisting/12",
+	"url": "https://findjobs.matiasmartin.dev/joblisting/12"
+}

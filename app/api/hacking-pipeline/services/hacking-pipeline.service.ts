@@ -8,6 +8,7 @@ import { hackingPipelineInstanceStore } from "../infra/store/hacking-pipeline-in
 import { reconModule, ReconModule } from "../(modules)/2-recon/2-recon.module";
 import { reportingModule } from "../(modules)/reporting/reporting.module";
 import { ReportingModuleInterface } from "../(modules)/reporting/reporting.module.i";
+import { ScanModule, scanModule } from "../(modules)/3-scan/3-scan.module";
 export interface HackingPipelineServiceInterface {
   launch(request: LaunchRequest): Promise<LaunchResponse>;
   getPipelineInstanceById(id: string): HackingPipelineInstance | undefined;
@@ -17,7 +18,8 @@ export interface HackingPipelineServiceInterface {
 export class HackingPipelineService implements HackingPipelineServiceInterface {
   constructor(
     private readonly reconModule: ReconModule,
-    private readonly reportingModule: ReportingModuleInterface
+    private readonly reportingModule: ReportingModuleInterface,
+    private readonly scanModule: ScanModule
   ) {}
 
   async launch(request: LaunchRequest): Promise<LaunchResponse> {
@@ -59,6 +61,13 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
       instance.addResult(HackingPipelineResultKey.RECON, reconResult);
       hackingPipelineInstanceStore.update(instance);
 
+      // 3. SCANNING
+      instance.updateStatus(HackingPipelineStatus.SCANNING);
+      hackingPipelineInstanceStore.update(instance);
+      const scanResult = await this.scanModule.runScan(instance.targetUrl);
+      instance.addResult(HackingPipelineResultKey.SCANNING, scanResult);
+      hackingPipelineInstanceStore.update(instance);
+
       // Mark as completed for now as requested ("48 hours", "simple")
       instance.updateStatus(HackingPipelineStatus.COMPLETED);
       hackingPipelineInstanceStore.update(instance);
@@ -84,5 +93,6 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
 
 export const hackingPipelineService = new HackingPipelineService(
   reconModule,
-  reportingModule
+  reportingModule,
+  scanModule
 );

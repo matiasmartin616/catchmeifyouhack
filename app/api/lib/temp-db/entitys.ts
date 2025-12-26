@@ -12,6 +12,7 @@ export enum HackingPipelineStatusDB {
 
 export enum HackingPipelineResultKeyDB {
   RECON = "recon",
+  SCANNING = "scanning",
 }
 
 export interface HackingPipelineInstanceDB {

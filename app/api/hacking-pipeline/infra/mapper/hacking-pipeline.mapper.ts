@@ -8,13 +8,17 @@ import {
   HackingPipelineStatusDB,
 } from "../../../lib/temp-db/entitys";
 import { ReconResultEntity } from "../../(modules)/2-recon/domain/entities";
+import { ScanResultEntity } from "../../(modules)/3-scan/domain/entities/scan-result.entity";
 
 export class HackingPipelineMapper {
   static toDomain(
     hackingPipelineInstance: HackingPipelineInstanceDB
   ): HackingPipelineInstance {
     const domainResults: Partial<
-      Record<HackingPipelineResultKey, string | ReconResultEntity>
+      Record<
+        HackingPipelineResultKey,
+        string | ReconResultEntity | ScanResultEntity
+      >
     > = {};
 
     Object.entries(hackingPipelineInstance.results).forEach(([key, value]) => {
@@ -22,6 +26,10 @@ export class HackingPipelineMapper {
         domainResults[HackingPipelineResultKey.RECON] = value as
           | string
           | ReconResultEntity;
+      } else if (key === HackingPipelineResultKeyDB.SCANNING) {
+        domainResults[HackingPipelineResultKey.SCANNING] = value as
+          | string
+          | ScanResultEntity;
       }
     });
 

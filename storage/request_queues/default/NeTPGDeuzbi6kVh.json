@@ -1,0 +1,9 @@
+{
+	"id": "NeTPGDeuzbi6kVh",
+	"json": "{\"id\":\"NeTPGDeuzbi6kVh\",\"url\":\"https://findjobs.matiasmartin.dev/?tag=Project%20Management\",\"loadedUrl\":\"https://findjobs.matiasmartin.dev/?tag=Project%20Management\",\"uniqueKey\":\"https://findjobs.matiasmartin.dev?tag=Project+Management\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"depth\":1,\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2025-12-26T11:02:30.632Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://findjobs.matiasmartin.dev?tag=Project+Management",
+	"url": "https://findjobs.matiasmartin.dev/?tag=Project%20Management"
+}
