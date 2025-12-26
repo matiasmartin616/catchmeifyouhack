@@ -19,7 +19,6 @@ export class ReconModule implements ReconModuleInterface {
   ) {}
 
   async runRecon(target: string): Promise<ReconResultEntity> {
-    // parallel execution of sub-tasks
     const [osint, techStack] = await Promise.all([
       this.gatherOsint(target),
       this.fingerprintTechnologies(target),
@@ -37,5 +36,4 @@ export class ReconModule implements ReconModuleInterface {
   }
 }
 
-// Export a singleton instance with injected services
 export const reconModule = new ReconModule(osintService, techStackService);

@@ -11,7 +11,6 @@ export class ReportingModule implements ReportingModuleInterface {
   }
 }
 
-// Composition Root for this module
 const reportAdapter = new PuppeteerReportAdapter();
 const reportingService = new ReportingService(reportAdapter);
 

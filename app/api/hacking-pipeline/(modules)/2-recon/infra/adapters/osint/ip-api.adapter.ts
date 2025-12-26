@@ -23,7 +23,6 @@ export class IpApiAdapter implements GeoIpAdapterPort {
     org?: string;
   }> {
     try {
-      // Resolve IP if it's a domain
       let ip = ipOrDomain;
       if (!this.isIp(ipOrDomain)) {
         const addresses = await dns.resolve4(ipOrDomain).catch(() => []);

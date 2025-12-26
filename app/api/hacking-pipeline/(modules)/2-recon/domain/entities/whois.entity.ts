@@ -10,7 +10,6 @@ export interface DomainWhoisData {
   [key: string]: string | string[] | undefined;
 }
 
-// Simplified entity for our domain logic, similar to the library but decoupled
 export class WhoisEntity {
   constructor(
     public readonly rawData: Record<string, DomainWhoisData>,

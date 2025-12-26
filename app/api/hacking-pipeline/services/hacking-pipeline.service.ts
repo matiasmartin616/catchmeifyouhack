@@ -68,7 +68,6 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
       instance.addResult(HackingPipelineResultKey.SCANNING, scanResult);
       hackingPipelineInstanceStore.update(instance);
 
-      // Mark as completed for now as requested ("48 hours", "simple")
       instance.updateStatus(HackingPipelineStatus.COMPLETED);
       hackingPipelineInstanceStore.update(instance);
     } catch (error) {

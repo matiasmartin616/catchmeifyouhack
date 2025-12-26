@@ -24,7 +24,6 @@ export class OsintService implements OsintServiceInterface {
   async gatherOsint(target: string): Promise<OsintEntity> {
     const domain = this.cleanTarget(target);
 
-    // Run independent tasks in parallel using adapters
     const [whoisData, dnsRecords, subdomains, geoIp] = await Promise.allSettled(
       [
         this.whoisAdapter.lookup(domain),
@@ -52,7 +51,6 @@ export class OsintService implements OsintServiceInterface {
   }
 }
 
-// Instantiate with concrete adapters
 export const osintService = new OsintService(
   new WhoiserAdapter(),
   new NodeDnsAdapter(),

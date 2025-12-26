@@ -9,8 +9,6 @@ import type {
   LogLevel as LogLevelType,
 } from "crawlee";
 
-// Dynamic import to avoid build issues with server components/Next.js
-// Crawlee is a heavy node-only library
 let CheerioCrawler: typeof CheerioCrawlerType;
 let log: { setLevel: (level: number) => void };
 let LogLevel: typeof LogLevelType;
@@ -21,7 +19,6 @@ export class CrawleeAdapter implements CrawlerPort {
     maxDepth: number = 2,
     maxPages: number = 50
   ): Promise<ScanResultEntity> {
-    // Lazy load crawlee only when needed
     if (!CheerioCrawler) {
       const crawlee = await import("crawlee");
       CheerioCrawler = crawlee.CheerioCrawler;

@@ -31,9 +31,7 @@ export class NodeDnsAdapter implements DnsAdapterPort {
           if (result) {
             records[type] = this.formatDnsResult(result as DnsRecordResult);
           }
-        } catch {
-          // Ignore errors
-        }
+        } catch {}
       })
     );
 
