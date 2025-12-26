@@ -23,7 +23,15 @@ export interface HackingPipelineInstanceDB {
   updatedAt: Date;
 }
 
-export const hackingPipelineInstances = new Map<
-  string,
-  HackingPipelineInstanceDB
->();
+export const hackingPipelineInstances =
+  (
+    globalThis as unknown as {
+      hackingPipelineInstances: Map<string, HackingPipelineInstanceDB>;
+    }
+  ).hackingPipelineInstances || new Map<string, HackingPipelineInstanceDB>();
+
+(
+  globalThis as unknown as {
+    hackingPipelineInstances: Map<string, HackingPipelineInstanceDB>;
+  }
+).hackingPipelineInstances = hackingPipelineInstances;

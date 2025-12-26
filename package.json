@@ -18,6 +18,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-hook-form": "^7.69.0",
+    "simple-wappalyzer": "^1.1.84",
     "whoiser": "^2.0.0-beta.10",
     "zod": "^4.2.1"
   },
