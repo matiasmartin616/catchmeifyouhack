@@ -7,9 +7,7 @@ export class TechStackService implements TechStackServiceInterface {
   constructor(private readonly techStackAdapter: TechStackPort) {}
 
   async fingerprint(target: string): Promise<TechStackEntity> {
-    const result = await this.techStackAdapter.analyze(target);
-    console.log(result);
-    return result;
+    return this.techStackAdapter.analyze(target);
   }
 }
 

@@ -8,13 +8,8 @@ interface CrtShEntry {
 export class CrtShAdapter implements SubdomainAdapterPort {
   async findSubdomains(domain: string): Promise<string[]> {
     const start = Date.now();
-    console.log(
-      `[CrtShAdapter] Starting fetch for ${domain} at ${new Date().toISOString()}`
-    );
 
     try {
-      // Increased timeout to 25s as crt.sh is often slow.
-      // Using a realistic User-Agent to avoid potential blocks.
       const response = await axios.get<CrtShEntry[]>(
         `https://crt.sh/?q=%.${domain}&output=json`,
         {
@@ -24,10 +19,6 @@ export class CrtShAdapter implements SubdomainAdapterPort {
               "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
           },
         }
-      );
-
-      console.log(
-        `[CrtShAdapter] Success for ${domain} in ${Date.now() - start}ms`
       );
 
       if (!Array.isArray(response.data)) return [];

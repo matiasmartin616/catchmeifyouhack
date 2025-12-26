@@ -42,7 +42,6 @@ export class SimpleWappalyzerAdapter implements TechStackPort {
     try {
       const page = await browser.newPage();
 
-      // Navigate to target
       const response = await page.goto(target, {
         waitUntil: "networkidle0",
         timeout: 30000,
@@ -52,25 +51,20 @@ export class SimpleWappalyzerAdapter implements TechStackPort {
         throw new Error("No response from target");
       }
 
-      // Gather data for simple-wappalyzer
       const html = await page.content();
       const statusCode = response.status();
-      const headersMap = response.headers(); // Record<string, string>
+      const headersMap = response.headers();
 
       headers = headersMap;
 
-      // Run analysis
       const result = (await wappalyzer({
         url: target,
         html,
         statusCode,
         headers: headersMap,
       })) as WappalyzerResult;
-      console.log(result);
-      // Parse results
+
       if (Array.isArray(result)) {
-        // The output is directly an array of applications in some versions/cases
-        // or the user logs show it comes as an array, not inside .applications
         const applications = result as unknown as WappalyzerApp[];
 
         applications.forEach((app: WappalyzerApp) => {
@@ -78,7 +72,6 @@ export class SimpleWappalyzerAdapter implements TechStackPort {
 
           if (app.categories) {
             const categories = app.categories;
-            // Based on user log, categories is an array of objects with an 'id' property
             const isWebServer = categories.some(
               (cat: WappalyzerCategory) => cat.id === 22
             );
@@ -93,7 +86,6 @@ export class SimpleWappalyzerAdapter implements TechStackPort {
         result.applications &&
         Array.isArray(result.applications)
       ) {
-        // Fallback to documented structure if it matches
         result.applications.forEach((app: WappalyzerApp) => {
           technologies.push(app.name);
 
