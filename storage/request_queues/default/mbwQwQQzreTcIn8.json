@@ -1,9 +1,0 @@
-{
-	"id": "mbwQwQQzreTcIn8",
-	"json": "{\"id\":\"mbwQwQQzreTcIn8\",\"url\":\"https://findjobs.matiasmartin.dev/?tag=%20JavaScript\",\"loadedUrl\":\"https://findjobs.matiasmartin.dev/?tag=%20JavaScript\",\"uniqueKey\":\"https://findjobs.matiasmartin.dev?tag=+JavaScript\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"depth\":1,\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2025-12-26T11:02:30.098Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://findjobs.matiasmartin.dev?tag=+JavaScript",
-	"url": "https://findjobs.matiasmartin.dev/?tag=%20JavaScript"
-}

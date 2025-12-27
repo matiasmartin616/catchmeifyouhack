@@ -1,9 +1,0 @@
-{
-	"id": "cfvaBDoKKup0hAL",
-	"json": "{\"id\":\"cfvaBDoKKup0hAL\",\"url\":\"https://findjobs.matiasmartin.dev/register\",\"loadedUrl\":\"https://findjobs.matiasmartin.dev/register\",\"uniqueKey\":\"https://findjobs.matiasmartin.dev/register\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"depth\":1,\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2025-12-26T11:02:29.166Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://findjobs.matiasmartin.dev/register",
-	"url": "https://findjobs.matiasmartin.dev/register"
-}

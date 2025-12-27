@@ -1,9 +1,0 @@
-{
-	"id": "uxNXtiustcU80Op",
-	"json": "{\"id\":\"uxNXtiustcU80Op\",\"url\":\"https://findjobs.matiasmartin.dev/?tag=%20AI\",\"loadedUrl\":\"https://findjobs.matiasmartin.dev/?tag=%20AI\",\"uniqueKey\":\"https://findjobs.matiasmartin.dev?tag=+AI\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"depth\":1,\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2025-12-26T11:02:29.728Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://findjobs.matiasmartin.dev?tag=+AI",
-	"url": "https://findjobs.matiasmartin.dev/?tag=%20AI"
-}

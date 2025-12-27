@@ -1,9 +1,0 @@
-{
-	"id": "QE9z1tISPiymXy0",
-	"json": "{\"id\":\"QE9z1tISPiymXy0\",\"url\":\"https://findjobs.matiasmartin.dev/?tag=Robotics\",\"loadedUrl\":\"https://findjobs.matiasmartin.dev/?tag=Robotics\",\"uniqueKey\":\"https://findjobs.matiasmartin.dev?tag=Robotics\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"depth\":1,\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2025-12-26T11:02:29.304Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://findjobs.matiasmartin.dev?tag=Robotics",
-	"url": "https://findjobs.matiasmartin.dev/?tag=Robotics"
-}

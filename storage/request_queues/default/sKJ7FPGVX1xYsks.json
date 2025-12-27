@@ -1,9 +1,0 @@
-{
-	"id": "sKJ7FPGVX1xYsks",
-	"json": "{\"id\":\"sKJ7FPGVX1xYsks\",\"url\":\"https://findjobs.matiasmartin.dev/?tag=%20Engineering\",\"loadedUrl\":\"https://findjobs.matiasmartin.dev/?tag=%20Engineering\",\"uniqueKey\":\"https://findjobs.matiasmartin.dev?tag=+Engineering\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"depth\":1,\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2025-12-26T11:02:29.443Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://findjobs.matiasmartin.dev?tag=+Engineering",
-	"url": "https://findjobs.matiasmartin.dev/?tag=%20Engineering"
-}

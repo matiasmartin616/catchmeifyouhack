@@ -1,9 +1,0 @@
-{
-	"id": "zxoVhVOfcTuP1Gx",
-	"json": "{\"id\":\"zxoVhVOfcTuP1Gx\",\"url\":\"https://findjobs.matiasmartin.dev\",\"loadedUrl\":\"https://findjobs.matiasmartin.dev/\",\"uniqueKey\":\"https://findjobs.matiasmartin.dev\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2025-12-26T11:02:28.944Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://findjobs.matiasmartin.dev",
-	"url": "https://findjobs.matiasmartin.dev"
-}
