@@ -4,6 +4,7 @@ export enum HackingPipelineStatusDB {
   SCOPING = "SCOPING",
   RECON = "RECON",
   SCANNING = "SCANNING",
+  VULN_ANALYSIS = "VULN_ANALYSIS",
   EXPLOITING = "EXPLOITING",
   POST_EXPLOITING = "POST_EXPLOITING",
   COMPLETED = "COMPLETED",
@@ -13,6 +14,7 @@ export enum HackingPipelineStatusDB {
 export enum HackingPipelineResultKeyDB {
   RECON = "recon",
   SCANNING = "scanning",
+  VULN_ANALYSIS = "vuln_analysis",
 }
 
 export interface HackingPipelineInstanceDB {

@@ -1,11 +1,14 @@
+import { VulnerabilityAnalysisResult } from "../../(modules)/4-vuln-analysis/domain/entities/vuln-analysis-result.entity";
 import { ReconResultEntity } from "../../(modules)/2-recon/domain/entities";
 import { ScanResultEntity } from "../../(modules)/3-scan/domain/entities/scan-result.entity";
+
 export enum HackingPipelineStatus {
   PENDING = "PENDING",
   LAUNCHED = "LAUNCHED",
   SCOPING = "SCOPING",
   RECON = "RECON",
   SCANNING = "SCANNING",
+  VULN_ANALYSIS = "VULN_ANALYSIS",
   EXPLOITING = "EXPLOITING",
   POST_EXPLOITING = "POST_EXPLOITING",
   COMPLETED = "COMPLETED",
@@ -15,6 +18,7 @@ export enum HackingPipelineStatus {
 export enum HackingPipelineResultKey {
   RECON = "recon",
   SCANNING = "scanning",
+  VULN_ANALYSIS = "vuln_analysis",
 }
 
 export default class HackingPipelineInstance {
@@ -25,7 +29,10 @@ export default class HackingPipelineInstance {
     public results: Partial<
       Record<
         HackingPipelineResultKey,
-        string | ReconResultEntity | ScanResultEntity
+        | string
+        | ReconResultEntity
+        | ScanResultEntity
+        | VulnerabilityAnalysisResult
       >
     >,
     public readonly createdAt: Date,
@@ -39,7 +46,11 @@ export default class HackingPipelineInstance {
 
   addResult(
     key: HackingPipelineResultKey,
-    data: string | ReconResultEntity | ScanResultEntity
+    data:
+      | string
+      | ReconResultEntity
+      | ScanResultEntity
+      | VulnerabilityAnalysisResult
   ) {
     this.results[key] = data;
     this.updatedAt = new Date();

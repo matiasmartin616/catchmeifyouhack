@@ -9,6 +9,11 @@ import { reconModule, ReconModule } from "../(modules)/2-recon/2-recon.module";
 import { reportingModule } from "../(modules)/reporting/reporting.module";
 import { ReportingModuleInterface } from "../(modules)/reporting/reporting.module.i";
 import { ScanModule, scanModule } from "../(modules)/3-scan/3-scan.module";
+import {
+  VulnAnalysisModule,
+  vulnAnalysisModule,
+} from "../(modules)/4-vuln-analysis/4-vuln-analysis.module";
+
 export interface HackingPipelineServiceInterface {
   launch(request: LaunchRequest): Promise<LaunchResponse>;
   getPipelineInstanceById(id: string): HackingPipelineInstance | undefined;
@@ -19,7 +24,8 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
   constructor(
     private readonly reconModule: ReconModule,
     private readonly reportingModule: ReportingModuleInterface,
-    private readonly scanModule: ScanModule
+    private readonly scanModule: ScanModule,
+    private readonly vulnAnalysisModule: VulnAnalysisModule
   ) {}
 
   async launch(request: LaunchRequest): Promise<LaunchResponse> {
@@ -68,6 +74,15 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
       instance.addResult(HackingPipelineResultKey.SCANNING, scanResult);
       hackingPipelineInstanceStore.update(instance);
 
+      // 4. VULN ANALYSIS
+      instance.updateStatus(HackingPipelineStatus.VULN_ANALYSIS);
+      hackingPipelineInstanceStore.update(instance);
+
+      const vulnResult = await this.vulnAnalysisModule.runAnalysis(instance);
+      console.log("VULN RESULT", vulnResult);
+      instance.addResult(HackingPipelineResultKey.VULN_ANALYSIS, vulnResult);
+      hackingPipelineInstanceStore.update(instance);
+
       instance.updateStatus(HackingPipelineStatus.COMPLETED);
       hackingPipelineInstanceStore.update(instance);
     } catch (error) {
@@ -93,5 +108,6 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
 export const hackingPipelineService = new HackingPipelineService(
   reconModule,
   reportingModule,
-  scanModule
+  scanModule,
+  vulnAnalysisModule
 );

@@ -9,6 +9,7 @@ import {
 } from "../../../lib/temp-db/entitys";
 import { ReconResultEntity } from "../../(modules)/2-recon/domain/entities";
 import { ScanResultEntity } from "../../(modules)/3-scan/domain/entities/scan-result.entity";
+import { VulnerabilityAnalysisResult } from "../../(modules)/4-vuln-analysis/domain/entities/vuln-analysis-result.entity";
 
 export class HackingPipelineMapper {
   static toDomain(
@@ -17,7 +18,10 @@ export class HackingPipelineMapper {
     const domainResults: Partial<
       Record<
         HackingPipelineResultKey,
-        string | ReconResultEntity | ScanResultEntity
+        | string
+        | ReconResultEntity
+        | ScanResultEntity
+        | VulnerabilityAnalysisResult
       >
     > = {};
 
@@ -30,6 +34,9 @@ export class HackingPipelineMapper {
         domainResults[HackingPipelineResultKey.SCANNING] = value as
           | string
           | ScanResultEntity;
+      } else if (key === HackingPipelineResultKeyDB.VULN_ANALYSIS) {
+        domainResults[HackingPipelineResultKey.VULN_ANALYSIS] =
+          value as VulnerabilityAnalysisResult;
       }
     });
 
