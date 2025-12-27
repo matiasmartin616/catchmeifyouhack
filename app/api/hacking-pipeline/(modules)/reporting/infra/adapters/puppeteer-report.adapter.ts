@@ -11,8 +11,16 @@ export class PuppeteerReportAdapter implements PdfGeneratorPort {
     try {
       const page = await browser.newPage();
 
+      // Log console messages from the page to debug
+      page.on("console", (msg) => console.log("PAGE LOG:", msg.text()));
+
+      if (!htmlContent || htmlContent.trim().length === 0) {
+        throw new Error("HTML content for PDF generation is empty");
+      }
+
       await page.setContent(htmlContent, {
         waitUntil: "networkidle0",
+        timeout: 30000, // 30s timeout
       });
 
       const pdfBuffer = await page.pdf({
@@ -26,7 +34,14 @@ export class PuppeteerReportAdapter implements PdfGeneratorPort {
         },
       });
 
+      if (!pdfBuffer || pdfBuffer.length === 0) {
+        throw new Error("Generated PDF buffer is empty");
+      }
+
       return Buffer.from(pdfBuffer);
+    } catch (error) {
+      console.error("Puppeteer PDF generation failed:", error);
+      throw error;
     } finally {
       await browser.close();
     }

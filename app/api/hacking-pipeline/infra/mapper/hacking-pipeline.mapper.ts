@@ -25,20 +25,24 @@ export class HackingPipelineMapper {
       >
     > = {};
 
-    Object.entries(hackingPipelineInstance.results).forEach(([key, value]) => {
-      if (key === HackingPipelineResultKeyDB.RECON) {
-        domainResults[HackingPipelineResultKey.RECON] = value as
-          | string
-          | ReconResultEntity;
-      } else if (key === HackingPipelineResultKeyDB.SCANNING) {
-        domainResults[HackingPipelineResultKey.SCANNING] = value as
-          | string
-          | ScanResultEntity;
-      } else if (key === HackingPipelineResultKeyDB.VULN_ANALYSIS) {
-        domainResults[HackingPipelineResultKey.VULN_ANALYSIS] =
-          value as VulnerabilityAnalysisResult;
-      }
-    });
+    if (hackingPipelineInstance.results) {
+      Object.entries(hackingPipelineInstance.results).forEach(
+        ([key, value]) => {
+          if (key === HackingPipelineResultKeyDB.RECON) {
+            domainResults[HackingPipelineResultKey.RECON] = value as
+              | string
+              | ReconResultEntity;
+          } else if (key === HackingPipelineResultKeyDB.SCANNING) {
+            domainResults[HackingPipelineResultKey.SCANNING] = value as
+              | string
+              | ScanResultEntity;
+          } else if (key === HackingPipelineResultKeyDB.VULN_ANALYSIS) {
+            domainResults[HackingPipelineResultKey.VULN_ANALYSIS] =
+              value as VulnerabilityAnalysisResult;
+          }
+        }
+      );
+    }
 
     return new HackingPipelineInstance(
       hackingPipelineInstance.pipelineId,

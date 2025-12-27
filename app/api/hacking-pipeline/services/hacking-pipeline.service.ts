@@ -96,6 +96,10 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
   }
 
   async generateReportByInstanceId(instanceId: string): Promise<Buffer> {
+    if (!instanceId) {
+      throw new Error("Pipeline ID is required to generate a report");
+    }
+
     const instance = this.getPipelineInstanceById(instanceId);
     if (!instance) {
       throw new Error("Pipeline instance not found");
