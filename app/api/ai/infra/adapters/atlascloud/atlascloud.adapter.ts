@@ -5,12 +5,15 @@ export class AtlasCloudAdapter implements AIPort {
 
   constructor() {
     this.apiKey = process.env.AI_API_KEY!;
-    if (!this.apiKey) {
-      throw new Error("AI_API_KEY environment variable is required");
-    }
+    // Allow instantiation without API key for build time
+    // Validation will happen at runtime when methods are called
   }
 
   async textToText(prompt: string): Promise<string> {
+    if (!this.apiKey) {
+      throw new Error("AI_API_KEY environment variable is required");
+    }
+
     const url = "https://api.atlascloud.ai/v1/chat/completions";
 
     const response = await fetch(url, {
