@@ -31,20 +31,20 @@ export default function RootLayout({
             >
                 <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-green-900/10 via-black to-black -z-10" />
 
-                <header className="text-center space-y-4 pt-12">
+                <header className="text-center space-y-4 pt-8 md:pt-12 px-4">
                     <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
-                        <h1 className="text-5xl font-black tracking-tighter sm:text-7xl uppercase italic">
-                            CatchMe<span className="text-zinc-800 bg-green-500 px-2 not-italic">IfYouHack</span>
+                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter uppercase italic break-words">
+                            CatchMe<span className="text-zinc-800 bg-green-500 px-2 not-italic block md:inline-block md:ml-2 mt-2 md:mt-0">IfYouHack</span>
                         </h1>
                     </Link>
-                    <div className="flex items-center justify-center gap-4 text-[10px] tracking-[0.2em] text-green-500/50 font-bold uppercase">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-[10px] tracking-[0.2em] text-green-500/50 font-bold uppercase">
                         <span>[ Scanning_Active ]</span>
-                        <span className="w-1 h-1 bg-green-500 rounded-full animate-pulse" />
+                        <span className="w-1 h-1 bg-green-500 rounded-full animate-pulse hidden md:block" />
                         <span>[ System_Secure ]</span>
                     </div>
                 </header>
 
-                <main className="w-full flex-1 flex flex-col items-center justify-center p-8">
+                <main className="w-full flex-1 flex flex-col items-center justify-center p-4 md:p-8">
                     <Providers>{children}</Providers>
                 </main>
 

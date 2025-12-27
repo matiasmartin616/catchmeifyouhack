@@ -60,10 +60,10 @@ export default function SubmitUrlForm() {
     };
 
     return (
-        <div className="w-full max-w-md p-6 bg-black border border-green-500/30 rounded-lg shadow-[0_0_20px_rgba(34,197,94,0.1)] font-mono">
-            <div className="flex items-center gap-2 mb-6 text-green-500 border-b border-green-500/20 pb-2">
-                <Terminal size={20} />
-                <span className="text-sm font-bold tracking-widest uppercase">Target_Infiltration_Console</span>
+        <div className="w-full max-w-md p-4 md:p-6 bg-black border border-green-500/30 rounded-lg shadow-[0_0_20px_rgba(34,197,94,0.1)] font-mono">
+            <div className="flex items-center gap-2 mb-4 md:mb-6 text-green-500 border-b border-green-500/20 pb-2">
+                <Terminal size={18} className="md:w-5 md:h-5" />
+                <span className="text-xs md:text-sm font-bold tracking-widest uppercase">Target_Infiltration_Console</span>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>

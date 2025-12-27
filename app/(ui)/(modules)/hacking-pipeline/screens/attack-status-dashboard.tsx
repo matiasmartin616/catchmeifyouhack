@@ -180,19 +180,19 @@ export default function AttackStatusDashboard({
     }, [reportBlob, pipelineId]);
 
     return (
-        <div className="w-full max-w-5xl p-1 font-mono">
+        <div className="w-full max-w-5xl p-2 md:p-1 font-mono">
             <div className="relative bg-black border border-green-500/30 rounded-lg shadow-[0_0_30px_rgba(34,197,94,0.15)] overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(0,50,0,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,50,0,0.1)_1px,transparent_1px)] bg-size-[20px_20px] pointer-events-none" />
 
-                <div className="relative flex items-center justify-between p-4 border-b border-green-500/20 bg-green-950/10 backdrop-blur-sm">
+                <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between p-4 border-b border-green-500/20 bg-green-950/10 backdrop-blur-sm gap-2 md:gap-0">
                     <div className="flex items-center gap-3">
-                        <Terminal className="text-green-500" size={20} />
-                        <span className="text-sm font-bold tracking-[0.2em] text-green-400 uppercase">
+                        <Terminal className="text-green-500" size={18} />
+                        <span className="text-xs md:text-sm font-bold tracking-[0.2em] text-green-400 uppercase">
                             CatchMeIfYouHack_Console{" "}
                             <span className="text-green-700">{"//"}</span> v1.0
                         </span>
                     </div>
-                    <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-green-600">
+                    <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-green-600 w-full md:w-auto justify-between md:justify-start">
                         <span className="flex items-center gap-2">
                             <Wifi
                                 size={12}
@@ -207,7 +207,7 @@ export default function AttackStatusDashboard({
                     </div>
                 </div>
 
-                <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+                <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6">
                     <div className="md:col-span-1 space-y-6">
                         <div className="bg-zinc-900/50 border border-green-500/20 p-4 rounded">
                             <h3 className="flex items-center gap-2 text-xs font-bold text-green-500 uppercase tracking-widest mb-4">
@@ -290,7 +290,7 @@ export default function AttackStatusDashboard({
                         )}
                     </div>
 
-                    <div className="md:col-span-2 flex flex-col h-[400px]">
+                    <div className="md:col-span-2 flex flex-col h-[300px] md:h-[400px]">
                         <div className="flex items-center justify-between mb-2 px-1">
                             <span className="text-[10px] text-green-700 uppercase tracking-widest font-bold">
                                 {"// System_Logs"}
@@ -342,7 +342,7 @@ export default function AttackStatusDashboard({
                     </div>
                 </div>
 
-                <div className="p-2 border-t border-green-500/20 bg-black/50 flex justify-between items-center text-[8px] uppercase tracking-[0.2em] text-green-800">
+                <div className="p-2 border-t border-green-500/20 bg-black/50 flex flex-col md:flex-row gap-2 md:gap-0 justify-between items-center text-[8px] uppercase tracking-[0.2em] text-green-800">
                     <div className="flex gap-4">
                         <span className="flex items-center gap-1">
                             <Lock size={8} /> ENCRYPTED
@@ -355,7 +355,7 @@ export default function AttackStatusDashboard({
                         <button
                             onClick={handleDownloadReport}
                             disabled={isDownloadingReport}
-                            className={`bg-green-600 hover:bg-green-500 text-black font-bold px-4 py-1 rounded text-[10px] transition-colors cursor-pointer ${isDownloadingReport ? "opacity-50 cursor-wait" : ""
+                            className={`bg-green-600 hover:bg-green-500 text-black font-bold px-4 py-2 md:py-1 rounded text-[10px] transition-colors cursor-pointer w-full md:w-auto ${isDownloadingReport ? "opacity-50 cursor-wait" : ""
                                 }`}
                         >
                             {isDownloadingReport ? "DOWNLOADING..." : "DOWNLOAD_REPORT"}
