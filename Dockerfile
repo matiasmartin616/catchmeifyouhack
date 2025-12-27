@@ -50,6 +50,10 @@ COPY package.json bun.lock ./
 # Install dependencies
 RUN bun install --frozen-lockfile
 
+# Explicitly install Puppeteer's Chrome to ensure it's available
+# This fixes the "Could not find Chrome" error in production
+RUN bunx puppeteer browsers install chrome
+
 # Copy source code
 COPY . .
 
