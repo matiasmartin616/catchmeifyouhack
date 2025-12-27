@@ -79,7 +79,6 @@ export class HackingPipelineService implements HackingPipelineServiceInterface {
       hackingPipelineInstanceStore.update(instance);
 
       const vulnResult = await this.vulnAnalysisModule.runAnalysis(instance);
-      console.log("VULN RESULT", vulnResult);
       instance.addResult(HackingPipelineResultKey.VULN_ANALYSIS, vulnResult);
       hackingPipelineInstanceStore.update(instance);
 

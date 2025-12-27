@@ -1,6 +1,6 @@
 import { VulnAnalysisServiceInterface } from "./services/vuln-analysis.service.i";
 import { VulnAnalysisService } from "./services/vuln-analysis.service";
-import { NvdAdapter } from "./infra/adapters/nvd/nvd.adapter";
+import { NvdAdapter } from "./infra/adapters/nvd.adapter";
 import { aiModule } from "../../../ai/ai.module";
 import { VulnerabilityAnalysisResult } from "./domain/entities/vuln-analysis-result.entity";
 import HackingPipelineInstance from "../../domain/entities/hacking-pipeline-instance";

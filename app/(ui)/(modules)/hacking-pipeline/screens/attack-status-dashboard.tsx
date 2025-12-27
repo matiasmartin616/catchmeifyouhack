@@ -13,6 +13,7 @@ import {
     Globe,
     CheckCircle2,
     XCircle,
+    AlertTriangle,
 } from "lucide-react";
 import { useStatusService } from "../data-layer/service-hooks/use-status.service.hook";
 import { useDownloadReportByPipelineId } from "../data-layer/service-hooks/use-download-report-by-pipeline-id.hook";
@@ -24,11 +25,12 @@ interface AttackStatusDashboardProps {
 
 const STATUS_PROGRESS: Record<HackingPipelineStatus, number> = {
     [HackingPipelineStatus.PENDING]: 5,
-    [HackingPipelineStatus.LAUNCHED]: 15,
-    [HackingPipelineStatus.SCOPING]: 30,
-    [HackingPipelineStatus.RECON]: 45,
-    [HackingPipelineStatus.SCANNING]: 50,
-    [HackingPipelineStatus.EXPLOITING]: 75,
+    [HackingPipelineStatus.LAUNCHED]: 10,
+    [HackingPipelineStatus.SCOPING]: 25,
+    [HackingPipelineStatus.RECON]: 40,
+    [HackingPipelineStatus.SCANNING]: 60,
+    [HackingPipelineStatus.VULN_ANALYSIS]: 80,
+    [HackingPipelineStatus.EXPLOITING]: 86,
     [HackingPipelineStatus.POST_EXPLOITING]: 90,
     [HackingPipelineStatus.COMPLETED]: 100,
     [HackingPipelineStatus.FAILED]: 0,
@@ -40,6 +42,7 @@ const STATUS_SEQUENCE = [
     HackingPipelineStatus.SCOPING,
     HackingPipelineStatus.RECON,
     HackingPipelineStatus.SCANNING,
+    HackingPipelineStatus.VULN_ANALYSIS,
     HackingPipelineStatus.EXPLOITING,
     HackingPipelineStatus.POST_EXPLOITING,
     HackingPipelineStatus.COMPLETED,
@@ -51,6 +54,7 @@ const STATUS_MESSAGES: Record<HackingPipelineStatus, string> = {
     [HackingPipelineStatus.SCOPING]: "DEFINING_ATTACK_SURFACE // ANALYZING_SCOPE...",
     [HackingPipelineStatus.RECON]: "ENUMERATING_TARGET_INFO...",
     [HackingPipelineStatus.SCANNING]: "ENUMERATING_SERVICES // PORT_SCANNING_IN_PROGRESS...",
+    [HackingPipelineStatus.VULN_ANALYSIS]: "ANALYZING_VULNERABILITIES...",
     [HackingPipelineStatus.EXPLOITING]: "VULNERABILITY_DETECTED // ATTEMPTING_EXPLOIT...",
     [HackingPipelineStatus.POST_EXPLOITING]: "ACCESS_GRANTED // GATHERING_INTELLIGENCE...",
     [HackingPipelineStatus.COMPLETED]: "OPERATION_SUCCESSFUL // REPORT_GENERATED.",
@@ -78,6 +82,11 @@ export default function AttackStatusDashboard({
     const currentStatus = (info?.status as HackingPipelineStatus) || HackingPipelineStatus.PENDING;
     const isComplete = currentStatus === HackingPipelineStatus.COMPLETED;
     const isFailed = currentStatus === HackingPipelineStatus.FAILED;
+
+    const vulnResults = info?.results?.["vuln_analysis"] as unknown as { vulnerabilities: { severity: string }[] };
+    const totalVulns = vulnResults?.vulnerabilities?.length || 0;
+    const criticalVulns = vulnResults?.vulnerabilities?.filter((v) => v.severity === "CRITICAL").length || 0;
+    const highVulns = vulnResults?.vulnerabilities?.filter((v) => v.severity === "HIGH").length || 0;
 
     useEffect(() => {
         if (isError) {
@@ -250,6 +259,35 @@ export default function AttackStatusDashboard({
                                 </span>
                             </div>
                         </div>
+
+                        {/* VULN STATS */}
+                        {(totalVulns > 0 || currentStatus === HackingPipelineStatus.COMPLETED) && (
+                            <div className="bg-zinc-900/50 border border-green-500/20 p-4 rounded animate-in fade-in zoom-in duration-500">
+                                <h3 className="flex items-center gap-2 text-xs font-bold text-green-500 uppercase tracking-widest mb-4">
+                                    <AlertTriangle size={14} /> Possible_Vuln_Detected
+                                </h3>
+                                <div className="space-y-2">
+                                    <div className="flex justify-between items-center text-xs">
+                                        <span className="text-red-500 font-bold uppercase">Critical</span>
+                                        <span className="bg-red-500/20 text-red-500 px-2 py-0.5 rounded border border-red-500/50">
+                                            {criticalVulns}
+                                        </span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-xs">
+                                        <span className="text-orange-500 font-bold uppercase">High</span>
+                                        <span className="bg-orange-500/20 text-orange-500 px-2 py-0.5 rounded border border-orange-500/50">
+                                            {highVulns}
+                                        </span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-xs pt-2 border-t border-green-500/10">
+                                        <span className="text-green-600 font-bold uppercase">Total</span>
+                                        <span className="text-green-400 font-mono">
+                                            {totalVulns}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     <div className="md:col-span-2 flex flex-col h-[400px]">

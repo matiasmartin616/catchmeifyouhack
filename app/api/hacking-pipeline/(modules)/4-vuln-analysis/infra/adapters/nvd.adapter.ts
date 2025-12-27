@@ -1,24 +1,10 @@
 import {
   VulnDatabasePort,
   VulnDatabaseQuery,
-} from "../../ports/vuln-database.port";
-import { VulnerabilityFinding } from "../../../domain/entities/vuln-analysis-result.entity";
-
-//simplified, nvd api response is more complex
-interface NvdApiResponse {
-  vulnerabilities: Array<{
-    cve: {
-      id: string;
-      descriptions: Array<{ lang: string; value: string }>;
-      metrics?: {
-        cvssMetricV31?: Array<{
-          cvssData: { baseScore: number; baseSeverity: string };
-        }>;
-      };
-      references?: Array<{ url: string }>;
-    };
-  }>;
-}
+} from "../ports/vuln-database.port";
+import { VulnerabilityFinding } from "../../domain/entities/vuln-analysis-result.entity";
+import { NvdApiResponseDTO } from "../dtos/nvd-api.dto";
+import { NvdMapper } from "../mappers/nvd.mapper";
 
 export class NvdAdapter implements VulnDatabasePort {
   private readonly baseUrl = "https://services.nvd.nist.gov/rest/json/cves/2.0";
@@ -53,8 +39,8 @@ export class NvdAdapter implements VulnDatabasePort {
         return [];
       }
 
-      const data: NvdApiResponse = await response.json();
-      return this.mapToFindings(data, query);
+      const data: NvdApiResponseDTO = await response.json();
+      return NvdMapper.toDomain(data, query);
     } catch (error) {
       console.error(`Failed to fetch NVD data:`, error);
       return [];
@@ -92,7 +78,7 @@ export class NvdAdapter implements VulnDatabasePort {
         console.warn("[NVD] Date range > 120 days, clamping to 120 days.");
         const clampedEnd = new Date(start);
         clampedEnd.setDate(clampedEnd.getDate() + 120);
-        set("pubStartDate", q.pubStartDate); // Already ISO string hopefully or we format
+        set("pubStartDate", q.pubStartDate);
         set("pubEndDate", clampedEnd.toISOString());
       } else {
         set("pubStartDate", q.pubStartDate);
@@ -102,51 +88,7 @@ export class NvdAdapter implements VulnDatabasePort {
 
     url.searchParams.set("resultsPerPage", "50");
     url.searchParams.set("startIndex", "0");
-    // url.searchParams.append("noRejected", ""); // API might complain if empty value param structure varies
 
     return url.toString();
-  }
-
-  private mapToFindings(
-    data: NvdApiResponse,
-    query: VulnDatabaseQuery
-  ): VulnerabilityFinding[] {
-    if (!data.vulnerabilities) return [];
-
-    return data.vulnerabilities.map((item) => {
-      const cve = item.cve;
-      const description =
-        cve.descriptions.find((d) => d.lang === "en")?.value ||
-        "No description available";
-
-      const metrics = cve.metrics?.cvssMetricV31?.[0]?.cvssData;
-      let severity: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL" = "LOW";
-
-      if (metrics) {
-        if (metrics.baseScore >= 9.0) severity = "CRITICAL";
-        else if (metrics.baseScore >= 7.0) severity = "HIGH";
-        else if (metrics.baseScore >= 4.0) severity = "MEDIUM";
-        else severity = "LOW";
-      }
-
-      const references = cve.references?.map((r) => r.url).slice(0, 3) || [];
-      const link = `https://nvd.nist.gov/vuln/detail/${cve.id}`;
-
-      // Identify technology from query
-      let affectedTechnology = "Unknown";
-      if (query.cpeName) affectedTechnology = query.cpeName;
-      else if (query.virtualMatchString)
-        affectedTechnology = query.virtualMatchString;
-      else if (query.keywordSearch) affectedTechnology = query.keywordSearch;
-
-      return new VulnerabilityFinding(
-        cve.id,
-        severity,
-        description,
-        [link, ...references],
-        affectedTechnology,
-        query
-      );
-    });
   }
 }
